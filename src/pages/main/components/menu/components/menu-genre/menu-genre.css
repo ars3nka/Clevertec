@@ -1,0 +1,26 @@
+.menu-genre {
+  margin-bottom: 16px;
+}
+
+.menu-genre button:hover,
+.menu-genre div:hover {
+  cursor: pointer;
+  color: #f83600;
+}
+
+.menu-genre button {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-genre div {
+  font-size: 16px;
+  color: #363636;
+  text-align: left;
+}
+
+.menu-genre p {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #a7a7a7;
+}

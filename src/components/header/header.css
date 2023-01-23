@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 1110px;
+  height: 58px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.header h1 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #363636;
+}
+
+.header-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-user div {
+  /* width: 106px; */
+  font-size: 14px;
+  font-weight: 600;
+  color: #363636;
+  margin-right: 16px;
+}
+
+.header-logo {
+  margin-right: 120px;
+}
+
+.header h1 {
+  margin-right: 435px;
+}

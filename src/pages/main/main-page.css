@@ -1,0 +1,19 @@
+.main-section {
+  margin-top: 47px;
+  height: 1550px;
+}
+
+.main {
+  width: 1110px;
+  margin: 0 auto;
+  /* display: flex; */
+}
+
+.main-left {
+  max-width: 279px;
+  float: left;
+}
+
+.main-right {
+  float: right;
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 body {
   height: 100%;
   justify-content: center;
@@ -58,7 +60,7 @@ img {
   display: block;
 }
 
-article>*+* {
+article > * + * {
   margin-top: 1em;
 }
 
@@ -68,4 +70,14 @@ textarea,
 select {
   padding: 0;
   font: inherit;
+}
+
+button {
+  outline: none;
+  border: 0px;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
 }

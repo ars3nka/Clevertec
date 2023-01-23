@@ -1,0 +1,40 @@
+.menu-item {
+  margin-bottom: 42px;
+}
+
+.menu-header {
+  color: #363636;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.menu-header:hover {
+  cursor: pointer;
+}
+
+.menu-item-active .menu-header {
+  color: #f83600;
+}
+
+.menu-header:hover {
+  color: #f9d423;
+}
+
+.line {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  width: 255px;
+  height: 1px;
+  background-color: #f83600;
+}
+
+.submenu-all {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f83600;
+  margin-bottom: 16px;
+}
+
+.submenu {
+  margin-left: 20px;
+}
