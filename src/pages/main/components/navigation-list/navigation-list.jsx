@@ -10,7 +10,7 @@ export const NavigationList = () => (
       <input type='text' placeholder='Поиск книги или автора…' className='button-style search' />
       <button type='button' className='button-style sort'>
         <img src={sortImg} alt='' />
-        По рейтингу
+        <p>По рейтингу</p>
       </button>
     </div>
     <div className='navigation-list-right'>

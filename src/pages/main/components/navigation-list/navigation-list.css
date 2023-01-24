@@ -76,3 +76,33 @@
 .sort-button-active img {
   color: #ffffff;
 }
+
+@media screen and (max-width: 960px) {
+  .search {
+    width: 274px;
+  }
+  .navigation-list-left {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .search {
+    width: 136px;
+  }
+  .sort {
+    width: 45px;
+  }
+  .sort p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sort-button,
+  .search,
+  .sort {
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -1,9 +1,31 @@
 .books {
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; */
   display: grid;
   gap: 20px;
   grid-template-columns: auto auto auto auto;
   width: 824px;
+}
+
+@media screen and (max-width: 960px) {
+  .books {
+    grid-template-columns: auto auto auto;
+    grid-auto-columns: minmax(10px, auto);
+    justify-content: center;
+    max-width: 640px;
+    width: 100%;
+    row-gap: 32px;
+    /* column-gap: 35px; */
+    column-gap: 12px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .books {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .books {
+    grid-template-columns: auto;
+  }
 }
