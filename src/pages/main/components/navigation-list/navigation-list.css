@@ -58,6 +58,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: #a7a7a7;
+}
+
+.sort-button:hover {
+  background: #ffffff;
+  fill: #a7a7a7;
+  filter: drop-shadow(0px 2px 5px rgba(54, 54, 54, 0.1));
+}
+
+.sort-button:active {
+  filter: drop-shadow(0px 3px 4px rgba(222, 125, 11, 0.2)) drop-shadow(0px 1px 10px rgba(249, 89, 8, 0.2));
 }
 
 .sort-button:first-child {
@@ -71,6 +82,7 @@
 
 .sort-button-active {
   background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  fill: #ffffff;
 }
 
 .sort-button-active img {
@@ -104,5 +116,11 @@
   .sort {
     width: 32px;
     height: 32px;
+  }
+  .sort {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

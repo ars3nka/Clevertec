@@ -30,12 +30,12 @@ export const Menu = () => (
     </div>
     <div className='menu-item'>
       <button type='button' className='menu-header'>
-        Правила пользования
+        <a href='/#/rules'>Правила пользования</a>
       </button>
     </div>
     <div className='menu-item'>
       <button type='button' className='menu-header'>
-        Договор оферты
+        <a href='/#/contract'>Договор оферты</a>
       </button>
     </div>
   </div>

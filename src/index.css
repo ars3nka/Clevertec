@@ -81,3 +81,13 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  flex: 1 1 auto;
+}

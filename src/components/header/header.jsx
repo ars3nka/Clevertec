@@ -12,7 +12,9 @@ export const Header = () => {
       <header>
         <div className='header'>
           <div className='header-logo'>
-            <img src={logo} alt='Cleverland Logo' />
+            <a href='/'>
+              <img src={logo} alt='Cleverland Logo' />
+            </a>
           </div>
           <div className='header-burger'>
             <button type='button'>
