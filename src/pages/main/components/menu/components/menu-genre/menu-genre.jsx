@@ -1,10 +1,13 @@
 import './menu-genre.css';
 
 export const MenuGenre = (props) => (
-  <div className='menu-genre'>
+  <li className='menu-genre'>
     <button type='button'>
-      <div>{props.genre}</div>
-      <p>{props.amount}</p>
+      <div className='menu-genre-genre'>
+        {/* <p className='menu-genre-genre-genre'>{props.genre} </p> */}
+        {props.genre}
+        <p className='menu-genre-amount'>{props.amount}</p>
+      </div>
     </button>
-  </div>
+  </li>
 );

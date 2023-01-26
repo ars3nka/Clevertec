@@ -9,7 +9,7 @@ export const Menu = () => (
         Витрина книг
       </button>
       <div className='line' />
-      <div className='submenu'>
+      <ul className='submenu'>
         <button type='button' className='submenu-all'>
           Все книги
         </button>
@@ -26,7 +26,7 @@ export const Menu = () => (
         <MenuGenre genre='Справочники' amount={10} />
         <MenuGenre genre='Фантастика' amount={12} />
         <MenuGenre genre='Юмористическая литература' amount={8} />
-      </div>
+      </ul>
     </div>
     <div className='menu-item'>
       <button type='button' className='menu-header'>

@@ -5,5 +5,5 @@ export const BooksList = ({ books }) => {
     <BookList src={book.src} rating={book.rating} title={book.title} author={book.author} available={book.available} />
   ));
 
-  return <div className='books-list'>{booksElements}</div>;
+  return <div className='books-list hide'>{booksElements}</div>;
 };

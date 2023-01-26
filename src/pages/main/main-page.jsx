@@ -9,7 +9,7 @@ import { NavigationList } from './components/navigation-list/navigation-list';
 
 import './main-page.css';
 
-const ViewListMode = false;
+// const ViewListMode = false;
 
 export const MainPage = () => (
   <div className='wrapper'>
@@ -22,7 +22,9 @@ export const MainPage = () => (
           </div>
           <div className='main-right'>
             <NavigationList />
-            {ViewListMode ? <BooksList books={booksData} /> : <Books books={booksData} />}
+            {/* {ViewListMode ? <BooksList books={booksData} /> : <Books books={booksData} />} */}
+            <Books books={booksData} />
+            <BooksList books={booksData} />
           </div>
         </div>
       </main>
