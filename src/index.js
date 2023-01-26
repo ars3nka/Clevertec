@@ -18,9 +18,9 @@ root.render(
       <Routes>
         <Route>
           <Route path='/' element={<MainPage />} />
-          <Route path='/book' element={<BookPage />} />
-          <Route path='/rules' element={<RulesPage />} />
+          <Route path='/terms' element={<RulesPage />} />
           <Route path='/contract' element={<ContractPage />} />
+          <Route path='/book' element={<BookPage />} />
         </Route>
       </Routes>
     </HashRouter>

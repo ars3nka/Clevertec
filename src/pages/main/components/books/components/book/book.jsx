@@ -1,11 +1,13 @@
+import { NavLink } from 'react-router-dom';
+
 import { StarRating } from './components/star-rating/star-rating';
 import altImage from './img/BookAltImage.png';
 
 import './book.css';
 
 export const Book = ({ src, rating, title, author, available }) => (
-  <a href='/#/book' data-test-id='card' onClick={() => setTimeout(() => document.location.reload(), 100)}>
-    <div className='book'>
+  <NavLink to='/book'>
+    <div className='book' data-test-id='card'>
       <div className='book-picture'>
         <img src={src || altImage} alt='Book' />
       </div>
@@ -22,5 +24,5 @@ export const Book = ({ src, rating, title, author, available }) => (
         </button>
       )}
     </div>
-  </a>
+  </NavLink>
 );

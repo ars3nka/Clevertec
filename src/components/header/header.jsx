@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import userImg from './img/avatar.png';
 import burgerImg from './img/burger.svg';
 import logo from './img/logo.svg';
@@ -12,9 +14,9 @@ export const Header = () => {
       <header>
         <div className='header'>
           <div className='header-logo'>
-            <a href='/'>
+            <NavLink to='/'>
               <img src={logo} alt='Cleverland Logo' />
-            </a>
+            </NavLink>
           </div>
           <div className='header-burger'>
             <button type='button'>

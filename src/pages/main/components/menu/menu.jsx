@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import { MenuGenre } from './components/menu-genre/menu-genre';
 
 import './menu.css';
@@ -37,12 +39,12 @@ export const Menu = () => {
       </div>
       <div className='menu-item'>
         <button type='button' className='menu-header'>
-          <a href='/#/rules'>Правила пользования</a>
+          <NavLink to='/terms'>Правила пользования</NavLink>
         </button>
       </div>
       <div className='menu-item'>
         <button type='button' className='menu-header'>
-          <a href='/#/contract'>Договор оферты</a>
+          <NavLink to='/contract'>Договор оферты</NavLink>
         </button>
       </div>
     </div>
