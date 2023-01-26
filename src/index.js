@@ -16,10 +16,12 @@ root.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/book' element={<BookPage />} />
-        <Route path='/rules' element={<RulesPage />} />
-        <Route path='/contract' element={<ContractPage />} />
+        <Route>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/book' element={<BookPage />} />
+          <Route path='/rules' element={<RulesPage />} />
+          <Route path='/contract' element={<ContractPage />} />
+        </Route>
       </Routes>
     </HashRouter>
   </React.StrictMode>

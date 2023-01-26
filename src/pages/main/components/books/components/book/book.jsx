@@ -4,8 +4,8 @@ import altImage from './img/BookAltImage.png';
 import './book.css';
 
 export const Book = ({ src, rating, title, author, available }) => (
-  <a href='/#/book'>
-    <div className='book' data-test-id='card'>
+  <a href='/#/book' data-test-id='card' onClick={() => setTimeout(() => document.location.reload(), 100)}>
+    <div className='book'>
       <div className='book-picture'>
         <img src={src || altImage} alt='Book' />
       </div>

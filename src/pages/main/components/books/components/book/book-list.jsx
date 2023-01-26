@@ -4,8 +4,8 @@ import altImage from './img/BookAltImage.png';
 import './book-list.css';
 
 export const BookList = ({ src, rating, title, author, available }) => (
-  <a href='/#/book'>
-    <div className='book-list' data-test-id='card'>
+  <a href='/#/book' data-test-id='card'>
+    <div className='book-list'>
       <div className='book-picture book-list-picture'>
         <img src={src || altImage} alt='Book' />
       </div>
