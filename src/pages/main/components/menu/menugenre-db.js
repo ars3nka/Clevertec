@@ -1,0 +1,15 @@
+export const menugenreDB = [
+  { genre: 'Бизнес-книги', amount: 14 },
+  { genre: 'Детективы', amount: 8 },
+  { genre: 'Детские книги', amount: 14 },
+  { genre: 'Зарубежная литература', amount: 2 },
+  { genre: 'История', amount: 5 },
+  { genre: 'Классическая литература', amount: 12 },
+  { genre: 'Компьютерная литература', amount: 54 },
+  { genre: 'Культура и искусство', amount: 5 },
+  { genre: 'Наука и образование', amount: 2 },
+  { genre: 'Публицистическая литература', amount: 0 },
+  { genre: 'Справочники', amount: 10 },
+  { genre: 'Фантастика', amount: 12 },
+  { genre: 'Юмористическая литература', amount: 8 },
+];

@@ -76,6 +76,10 @@
     display: block;
     margin-right: 24px;
   }
+  .header-burger button {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -95,4 +99,36 @@
   .header h1 {
     font-size: 18px;
   }
+}
+
+/* .header-burger-line {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: #363636;
+} */
+
+/* .header-burger-line:not(:last-child) img {
+  margin-bottom: 3px;
+} */
+
+.header-burger-line {
+  display: flex;
+  transition: all 0.4s ease-in-out;
+}
+
+.header-burger-line:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.active svg path {
+  fill: #f83600;
+}
+
+.active:first-child {
+  transform: rotate(45deg) translateY(6px);
+}
+
+.active:last-child {
+  transform: rotate(-45deg) translateY(-6px);
 }

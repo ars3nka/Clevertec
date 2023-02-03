@@ -1,34 +1,36 @@
+import bookImg from './pages/main/components/books/components/book/img/image.png';
+
 export const booksData = [
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 'ещё нет оценок',
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное',
     author: 'Адитья Бхаргава, 2019',
     available: true,
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 4,
     title: 'Грокаем алгоритмы. ',
     author: 'Адитья Бхаргава, 2019',
     available: 'занята до 03.05',
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 'ещё нет оценок',
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 'ещё нет оценок',
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
@@ -42,21 +44,21 @@ export const booksData = [
     available: 'Занята до 23.04',
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: true,
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: true,
   },
   {
-    src: 'https://avatars.mds.yandex.net/get-images-cbir/8715689/OtDhCo3KjkElU7AzN-G4_A7877/ocr',
+    src: bookImg,
     rating: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',

@@ -1,34 +1,27 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classNames from 'classnames';
+
+import { MenuContext } from '../../../layout/layout';
 
 import { MenuGenre } from './components/menu-genre/menu-genre';
+import { menugenreDB } from './menugenre-db';
 
 import './menu.css';
 
-const menugenreDB = [
-  { genre: 'Бизнес-книги', amount: 14 },
-  { genre: 'Детективы', amount: 8 },
-  { genre: 'Детские книги', amount: 14 },
-  { genre: 'Зарубежная литература', amount: 2 },
-  { genre: 'История', amount: 5 },
-  { genre: 'Классическая литература', amount: 12 },
-  { genre: 'Компьютерная литература', amount: 54 },
-  { genre: 'Культура и искусство', amount: 5 },
-  { genre: 'Наука и образование', amount: 2 },
-  { genre: 'Публицистическая литература', amount: 0 },
-  { genre: 'Справочники', amount: 10 },
-  { genre: 'Фантастика', amount: 12 },
-  { genre: 'Юмористическая литература', amount: 8 },
-];
-
 export const Menu = () => {
+  const { isMenuOpenContext, toggleMenuMode } = useContext(MenuContext);
   const menuElements = menugenreDB.map(({ genre, amount }) => <MenuGenre genre={genre} amount={amount} />);
 
   return (
-    <div className='menu'>
+    <div className={classNames('menu', { menuOpen: isMenuOpenContext })}>
       <div className='menu-item menu-item-active'>
-        <button type='button' className='menu-header'>
-          Витрина книг
-        </button>
+        <NavLink to='/'>
+          <button type='button' className='menu-header'>
+            Витрина книг
+          </button>
+        </NavLink>
         <div className='line' />
         <ul className='submenu'>
           <button type='button' className='submenu-all'>

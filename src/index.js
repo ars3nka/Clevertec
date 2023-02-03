@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { BookPage } from './pages/book';
 import { ContractPage } from './pages/contract/contract';
-import { MainPage } from './pages/main';
+import { Layout } from './pages/layout/layout';
+import { MainPage } from './pages/main/main-page';
 import { RulesPage } from './pages/rules/rules';
 
 import './index.css';
@@ -14,9 +15,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // eslint-disable-next-line react/jsx-filename-extension
   <React.StrictMode>
+    {/* <Provider store={store}> */}
     <HashRouter>
       <Routes>
-        <Route>
+        <Route path='/' element={<Layout />}>
           <Route path='/' element={<MainPage />} />
           <Route path='/terms' element={<RulesPage />} />
           <Route path='/contract' element={<ContractPage />} />
@@ -24,5 +26,6 @@ root.render(
         </Route>
       </Routes>
     </HashRouter>
+    {/* </Provider> */}
   </React.StrictMode>
 );
