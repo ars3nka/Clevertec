@@ -1,0 +1,130 @@
+.book-list {
+  max-width: 825px;
+  width: 100%;
+  display: flex;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  height: 218px;
+}
+
+.book-list-picture {
+  width: 120px;
+  height: 170px;
+  /* border: 1px solid #a7a7a7;
+  border-radius: 3px; */
+  margin-right: 16px;
+}
+
+.book-list-picture img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-list-title {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  color: #363636;
+  margin-bottom: 8px;
+}
+
+.book-list-author {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #727272;
+}
+
+.book-list-button {
+  width: 174px;
+  height: 40px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  background: #f9f9fa;
+  color: #a7a7a7;
+  border: 1px solid #bfc4c9;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.book-list-bottom {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-list-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 649px;
+  width: 100%;
+}
+
+/* Общие */
+.available {
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+.available:hover {
+  border: 1px solid #ff740f;
+  box-shadow: 0px 2px 5px rgba(54, 54, 54, 0.1);
+}
+
+.available:active {
+  border: 1px solid transparent;
+  box-shadow: 0px 3px 4px rgba(222, 125, 11, 0.2), 0px 1px 10px rgba(249, 89, 8, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .book-list-picture img {
+    width: 120px;
+    height: 172px;
+  }
+  .book-list-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  /* .book-list-left-container {
+    justify-content: left;
+  } */
+  .book-list-title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 3px;
+  }
+  .book-list-author {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
+  .book-list-bottom {
+    margin-top: 0px;
+    flex-direction: column;
+    height: 100%;
+  }
+  .book-list-button {
+    width: 100%;
+  }
+  .book-list-picture {
+    width: 70px;
+    height: 100px;
+  }
+  .book-list-picture img {
+    width: 70px;
+    height: 100px;
+  }
+  .book-list {
+    padding: 16px 8px 16px 8px;
+  }
+}

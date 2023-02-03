@@ -1,0 +1,146 @@
+.navigation-list {
+  max-width: 825px;
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.navigation-list-left {
+  margin-right: 217px;
+}
+
+.navigation-list-left,
+.navigation-list-right {
+  display: flex;
+}
+
+.button-style {
+  border-radius: 599px;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+  background: #ffffff;
+  border: 0px;
+  height: 100%;
+  color: #a7a7a7;
+}
+
+.search {
+  width: 350px;
+  background-image: url('./img/search.svg');
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: center;
+  padding: 10px;
+  padding-left: 30px;
+  margin-right: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.search:focus {
+  outline: none;
+  color: #f83600;
+}
+
+.search::placeholder {
+  color: #a7a7a7;
+}
+
+.sort {
+  display: flex;
+  width: 150px;
+  padding: 10px;
+  padding-left: 15px;
+}
+
+.sort:hover {
+  box-shadow: 0px 2px 5px rgba(54, 54, 54, 0.1);
+}
+
+.sort:active {
+  box-shadow: 0px 3px 4px rgba(222, 125, 11, 0.2), 0px 1px 10px rgba(249, 89, 8, 0.2);
+}
+
+.sort-button {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
+    drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #a7a7a7;
+}
+
+.sort-button:hover {
+  background: #ffffff;
+  fill: #a7a7a7;
+  filter: drop-shadow(0px 2px 5px rgba(54, 54, 54, 0.1));
+}
+
+.sort-button:active {
+  filter: drop-shadow(0px 3px 4px rgba(222, 125, 11, 0.2)) drop-shadow(0px 1px 10px rgba(249, 89, 8, 0.2));
+}
+
+.sort-button:first-child {
+  margin-right: 16px;
+}
+
+.sort-button img {
+  width: 19px;
+  height: 19px;
+}
+
+.sort-button-active {
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  fill: #ffffff;
+}
+
+.sort-button-active img {
+  color: #ffffff;
+}
+
+@media screen and (max-width: 960px) {
+  .search {
+    width: 274px;
+  }
+  .navigation-list-left {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .search {
+    width: 136px;
+  }
+  .search:focus {
+    background-image: url('./img/cross.svg');
+    background-position-x: 95%;
+    background-position-y: center;
+    padding-left: 10px;
+  }
+  .sort {
+    width: 45px;
+  }
+  .sort p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sort-button,
+  .search,
+  .sort {
+    width: 32px;
+    height: 32px;
+  }
+  .sort {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

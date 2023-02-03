@@ -1,0 +1,33 @@
+.menu-genre {
+  margin-bottom: 16px;
+}
+
+.menu-genre button:hover,
+.menu-genre .menu-genre-genre:hover {
+  cursor: pointer;
+  color: #ff5253;
+}
+
+.menu-genre button {
+  /* display: flex;
+  flex-direction: row; */
+  width: 100%;
+}
+
+.menu-genre .menu-genre-genre {
+  font-size: 16px;
+  color: #363636;
+  text-align: left;
+}
+
+.menu-genre .menu-genre-amount {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #a7a7a7;
+  display: inline-block;
+}
+
+/* .menu-genre-genre-genre {
+  display: inline-block !important;
+  max-width: 100% !important;
+} */
