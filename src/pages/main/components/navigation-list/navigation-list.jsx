@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { ReactComponent as CloseIcon } from './img/input-close.svg';
+// import closeInputSvg from './img/input-close.svg';
 import sortImg from './img/sort.svg';
 
 import './navigation-list.css';
@@ -7,10 +9,34 @@ import './navigation-list.css';
 export const NavigationList = () => {
   const [state, setState] = useState(false);
 
+  const hanldeFocus = (event) => {
+    event.target.classList.add('search-active');
+    document.getElementsByClassName('sort').item(0).classList.add('hide');
+    document.getElementsByClassName('navigation-list-right').item(0).classList.add('hide');
+    document.getElementsByClassName('close-input').item(0).classList.remove('hide');
+  };
+
+  const hanldeBlur = (event) => {
+    event.target.classList.remove('search-active');
+    document.getElementsByClassName('sort').item(0).classList.remove('hide');
+    document.getElementsByClassName('navigation-list-right').item(0).classList.remove('hide');
+    document.getElementsByClassName('close-input').item(0).classList.add('hide');
+  };
+
   return (
     <div className='navigation-list'>
       <div className='navigation-list-left'>
-        <input type='text' placeholder='Поиск книги или автора…' className='button-style search' />
+        <div className='button-style search-input' data-test-id='button-search-open'>
+          <input
+            type='text'
+            placeholder='Поиск книги или автора…'
+            className='search'
+            data-test-id='input-search'
+            onFocus={(event) => hanldeFocus(event)}
+            onBlur={(event) => hanldeBlur(event)}
+          />
+          <CloseIcon className='close-input hide' data-test-id='button-search-close' />
+        </div>
         <button type='button' className='button-style sort'>
           <img src={sortImg} alt='' />
           <p>По рейтингу</p>

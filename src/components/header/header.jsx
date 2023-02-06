@@ -1,13 +1,10 @@
 import { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import classNames from 'classnames';
 
 import { MenuContext } from '../../pages/layout/layout';
 
 import userImg from './img/avatar.png';
-import burgerImg from './img/burger.svg';
-import burgerVector from './img/burger-vector.svg';
 import logo from './img/logo.svg';
 
 import './header.css';
@@ -27,7 +24,7 @@ export const Header = () => {
             </NavLink>
           </div>
           <div className='header-burger'>
-            <button type='button' onClick={toggleMenuMode}>
+            <button type='button' onClick={toggleMenuMode} data-test-id='button-burger'>
               <span className={classNames('header-burger-line', { active: isMenuOpenContext })}>
                 <svg width='28' height='4' viewBox='0 0 28 4' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path

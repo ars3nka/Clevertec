@@ -2,11 +2,14 @@ import bookImg from './pages/main/components/books/components/book/img/image.png
 
 export const booksData = [
   {
-    src: bookImg,
+    src: '',
     rating: 'ещё нет оценок',
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
+    id: 1,
+    url: '/book/1',
+    category: 'bussiness',
   },
   {
     src: bookImg,
@@ -14,6 +17,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное',
     author: 'Адитья Бхаргава, 2019',
     available: true,
+    id: 2,
+    url: '/book/2',
   },
   {
     src: bookImg,
@@ -21,6 +26,9 @@ export const booksData = [
     title: 'Грокаем алгоритмы. ',
     author: 'Адитья Бхаргава, 2019',
     available: 'занята до 03.05',
+    id: 3,
+    url: '/book/3',
+    gallery: [bookImg, bookImg],
   },
   {
     src: bookImg,
@@ -28,6 +36,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
+    id: 4,
+    url: '/book/4',
   },
   {
     src: bookImg,
@@ -35,6 +45,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: 'Забронирована',
+    id: 5,
+    url: '/book/5',
   },
   {
     src: '',
@@ -42,6 +54,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное ',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: 'Занята до 23.04',
+    id: 6,
+    url: '/book/6',
   },
   {
     src: bookImg,
@@ -49,6 +63,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: true,
+    id: 7,
+    url: '/book/7',
   },
   {
     src: bookImg,
@@ -56,6 +72,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, Патрик Нимейер, 2019',
     available: true,
+    id: 8,
+    url: '/book/8',
   },
   {
     src: bookImg,
@@ -63,6 +81,8 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
+    id: 9,
+    url: '/book/9',
   },
   {
     src: '',
@@ -70,5 +90,7 @@ export const booksData = [
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
     author: 'Адитья Бхаргава, 2019',
     available: true,
+    id: 10,
+    url: '/book/10',
   },
 ];

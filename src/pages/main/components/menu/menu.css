@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-.menu-item-active .menu-header {
+.menuItemActive .menu-header {
   color: #f83600;
   /* color: linear-gradient(233.73deg, #f83600 -16.08%, #f9d423 327.37%); */
   font-weight: 700;

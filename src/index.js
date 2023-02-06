@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
@@ -13,19 +12,15 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  // eslint-disable-next-line react/jsx-filename-extension
-  <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <HashRouter>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/terms' element={<RulesPage />} />
-          <Route path='/contract' element={<ContractPage />} />
-          <Route path='/book' element={<BookPage />} />
-        </Route>
-      </Routes>
-    </HashRouter>
-    {/* </Provider> */}
-  </React.StrictMode>
+  <HashRouter>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/books' element={<MainPage />} />
+        <Route path='/terms' element={<RulesPage />} />
+        <Route path='/contract' element={<ContractPage />} />
+        <Route path='/book/:category/:id' element={<BookPage />} />
+      </Route>
+    </Routes>
+  </HashRouter>
 );
