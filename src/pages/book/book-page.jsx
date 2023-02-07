@@ -33,7 +33,7 @@ export const BookPage = () => {
               {book.gallery ? (
                 <BookSwiper gallery={book.gallery} />
               ) : (
-                <img src={book.src || altImage} alt='' className='big-image' />
+                <img src={book.src || altImage} alt='' className='big-image' data-test-id='slide-big' />
               )}
             </div>
           </div>

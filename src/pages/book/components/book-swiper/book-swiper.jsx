@@ -31,19 +31,20 @@ export const BookSwiper = ({ gallery }) => {
 
   const GalleryElements = gallery.map((image) => (
     <SwiperSlide>
-      <img src={image} alt='nature' className='big-image' />
+      <img src={image} alt='nature' className='big-image' data-test-id='slide-mini' />
     </SwiperSlide>
   ));
 
   const ThumbsElements = gallery.map((image) => (
     <SwiperSlide>
-      <img src={image} alt='nature' className='thumb-image' />
+      <img src={image} alt='nature' className='thumb-image' data-test-id='slide-mini' />
     </SwiperSlide>
   ));
 
   return (
     <React.Fragment>
       <Swiper
+        data-test-id='slide-big'
         style={{
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#363636',

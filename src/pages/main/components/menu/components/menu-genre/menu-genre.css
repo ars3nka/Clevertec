@@ -2,6 +2,10 @@
   margin-bottom: 16px;
 }
 
+.menu-genre-active .menu-genre-genre {
+  color: #f83600 !important;
+}
+
 .menu-genre button:hover,
 .menu-genre .menu-genre-genre:hover {
   cursor: pointer;

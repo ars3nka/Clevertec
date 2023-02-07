@@ -6,7 +6,7 @@ import altImage from './img/BookAltImage.png';
 import './book-list.css';
 
 export const BookList = ({ src, rating, title, author, available, id, category }) => (
-  <NavLink to={'/book/' + category + '/' + id}>
+  <NavLink to={`/book/${category}/${id}`}>
     <div className='book-list' data-test-id='card'>
       <div className='book-picture book-list-picture'>
         <img src={src || altImage} alt='Book' />

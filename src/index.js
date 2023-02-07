@@ -17,6 +17,7 @@ root.render(
       <Route path='/' element={<Layout />}>
         <Route path='/' element={<MainPage />} />
         <Route path='/books' element={<MainPage />} />
+        <Route path='/books/:category' element={<MainPage />} />
         <Route path='/terms' element={<RulesPage />} />
         <Route path='/contract' element={<ContractPage />} />
         <Route path='/book/:category/:id' element={<BookPage />} />

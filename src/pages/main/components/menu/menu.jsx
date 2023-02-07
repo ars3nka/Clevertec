@@ -1,6 +1,5 @@
-import { useContext, useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { useContext, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { MenuContext } from '../../../layout/layout';
@@ -12,104 +11,74 @@ import './menu.css';
 
 export const Menu = () => {
   const [isBookMenuShown, setIsBookMenuShown] = useState(false);
-  const [isBooksMenu, setIsBooksMenu] = useState(true);
-  const [isTermsMenu, setIsTermsMenu] = useState(false);
-  const [isContractMenu, setIsContractMenu] = useState(false);
-
-  const handleToggleMenu = (event) => {
-    console.log(event.target.id);
-    switch (event.target.id) {
-      case 'books':
-        setIsBooksMenu(true);
-        setIsTermsMenu(false);
-        setIsContractMenu(false);
-        break;
-      case 'terms':
-        setIsTermsMenu(true);
-        setIsBooksMenu(false);
-        setIsBookMenuShown(true);
-        setIsContractMenu(false);
-        break;
-      case 'contract':
-        setIsContractMenu(true);
-        setIsBooksMenu(false);
-        setIsBookMenuShown(true);
-        setIsTermsMenu(false);
-        break;
-    }
-    sessionStorage.setItem('menu', JSON.stringify({ isBooksMenu, isTermsMenu, isContractMenu }));
-  };
 
   const toggleBookMenu = () => {
-    console.log('toggleBookMenu');
-    if (isBooksMenu) {
-      setIsBookMenuShown(!isBookMenuShown);
-    }
+    setIsBookMenuShown(!isBookMenuShown);
+    document.getElementById('submenu').classList.toggle('hide');
+    console.log(isBookMenuShown);
   };
 
   const { isMenuOpenContext } = useContext(MenuContext);
   const menuElements = menugenreDB.map(({ genre, amount, id }) => <MenuGenre genre={genre} amount={amount} id={id} />);
 
-  console.log('isBooksMenu', isBooksMenu);
-  console.log('isTermsMenu', isTermsMenu);
-  console.log('isContractMenu', isContractMenu);
+  const location = useLocation();
 
-  console.log(sessionStorage.getItem('menu'));
+  console.log(location.pathname);
 
   return (
     <div className={classNames('menu', { menuOpen: isMenuOpenContext })} data-test-id='burger-navigation'>
-      <div className={classNames('menu-item', { menuItemActive: isBooksMenu })}>
-        <NavLink to='/'>
+      <div className='menu-item'>
+        <NavLink
+          to='/books/all'
+          className={location.pathname.includes('books') ? 'menu-item-active' : null}
+          data-test-id='burger-showcase'
+        >
           <button
             type='button'
             className='menu-header'
-            onClick={(event) => {
+            onClick={() => {
               toggleBookMenu();
-              handleToggleMenu(event);
             }}
             id='books'
+            data-test-id='navigation-showcase'
           >
             Витрина книг
           </button>
+          <ul className={classNames('submenu', { hide: isBookMenuShown })} id='submenu'>
+            <NavLink
+              to='/books/all'
+              className={({ isActive }) => (isActive ? 'submenu-active' : null)}
+              data-test-id='burger-books'
+            >
+              <button type='button' className='submenu-all' data-test-id='navigation-books'>
+                Все книги
+              </button>
+            </NavLink>
+            {menuElements}
+          </ul>
         </NavLink>
-        <div className={classNames('line', { hide: !isBooksMenu })} />
-        <ul className={classNames('submenu', { hide: isBookMenuShown })}>
-          <button type='button' className='submenu-all'>
-            Все книги
-          </button>
-          {menuElements}
-        </ul>
       </div>
-      <NavLink to='/terms'>
-        <div className={classNames('menu-item', { menuItemActive: isTermsMenu })}>
-          <button
-            type='button'
-            className='menu-header'
-            onClick={(event) => {
-              handleToggleMenu(event);
-            }}
-            id='terms'
-          >
+      <div className='menu-item'>
+        <NavLink
+          to='/terms'
+          className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
+          data-test-id='burger-terms'
+        >
+          <button type='button' className='menu-header' id='terms' data-test-id='navigation-terms'>
             Правила пользования
           </button>
-
-          <div className={classNames('line', { hide: !isTermsMenu })} />
-        </div>
-      </NavLink>
-      <div className={classNames('menu-item', { menuItemActive: isContractMenu })}>
-        <NavLink to='/contract'>
-          <button
-            type='button'
-            className='menu-header'
-            onClick={(event) => {
-              handleToggleMenu(event);
-            }}
-            id='contract'
-          >
+        </NavLink>
+      </div>
+      <div className='menu-item'>
+        <NavLink
+          to='/contract'
+          className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
+          data-test-id='burger-contract'
+        >
+          <button type='button' className='menu-header' id='contract' data-test-id='navigation-contract'>
             Договор оферты
           </button>
         </NavLink>
-        <div className={classNames('line', { hide: !isContractMenu })} />
       </div>
     </div>
   );
