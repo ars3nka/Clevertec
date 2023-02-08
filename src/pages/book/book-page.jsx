@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import classNames from 'classnames';
 
 import { booksData } from '../../db';
 
-import { Review } from './components/book-review/book-review';
+import { BookPageInfoTable } from './components/book-info-table/book-info-table';
+import { BookPageRating } from './components/book-rating/book-rating';
+import { BookPageReviews } from './components/book-reviews/book-reviews';
 import { BookSwiper } from './components/book-swiper/book-swiper';
 import altImage from './img/altImage.jpg';
-import { ReactComponent as ReviewButton } from './img/review_open.svg';
 
 import './book-page.css';
 
@@ -18,13 +17,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 export const BookPage = () => {
-  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
-
   const params = useParams();
   const { id } = params;
   const book = booksData.find((book) => book.id === Number(id));
 
-  console.log(book);
+  console.log('Книга:', book);
 
   return (
     <section className='main-wrapper book-page'>
@@ -65,94 +62,9 @@ export const BookPage = () => {
           </div>
         </div>
         <div className='book-bottom'>
-          <div className='book-about book-rating'>
-            <h5>Рейтинг</h5>
-            <div className='line book-line' />
-            <div className='star-rating'>
-              <div className='star' />
-              <div className='star' />
-              <div className='star' />
-              <div className='star' />
-              <div className='star-empty' />
-              <h5 className='star-rating-number'>4.3</h5>
-            </div>
-          </div>
-          <div className='book-about book-more'>
-            <h5>Подробная информация</h5>
-            <div className='line book-line' />
-            <div className='information'>
-              <table>
-                <td className='td-main'>
-                  <tr>
-                    <td className='category'>Издательство</td>
-                    <td>Питер</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Год издания</td>
-                    <td>2019</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Страниц</td>
-                    <td>288</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Переплёт</td>
-                    <td>Мягкая обложка</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Формат</td>
-                    <td>70х100</td>
-                  </tr>
-                </td>
-                <td>
-                  <tr>
-                    <td className='category'>Жанр</td>
-                    <td>Компьютерная литература</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Вес</td>
-                    <td>370 г</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>ISBN</td>
-                    <td>978-5-4461-0923-4</td>
-                  </tr>
-                  <tr>
-                    <td className='category'>Изготовитель</td>
-                    <td>ООО «Питер Мейл». РФ, 198 206, г. Санкт-Петербург, Петергофское ш, д. 73, лит. А29</td>
-                  </tr>
-                </td>
-              </table>
-            </div>
-          </div>
-          <div className='book-about book-reviews'>
-            <div className='book-about book-reviews-header'>
-              <h5>Отзывы</h5>
-              <p className='book-about book-reviews-count'>3</p>
-              <ReviewButton
-                className={classNames('book-about book-reviews-button', { bookReviewsButtonOpen: isReviewsOpen })}
-                onClick={() => setIsReviewsOpen(!isReviewsOpen)}
-                data-test-id='button-hide-reviews'
-              />
-            </div>
-
-            <div className='line book-line' />
-
-            <div className={classNames('reviews', { hide: !isReviewsOpen })}>
-              <Review name='Иван Иванов' date='5 января 2019' />
-              <Review
-                name='Николай Качков'
-                date='20 июня 2018'
-                text='Учитывая ключевые сценарии поведения, курс на социально-ориентированный национальный проект не оставляет шанса для анализа существующих паттернов поведения. Для современного мира внедрение современных методик предоставляет широкие возможности для позиций, занимаемых участниками в отношении поставленных задач. Как уже неоднократно упомянуто, сделанные на базе интернет-аналитики выводы будут в равной степени предоставлены сами себе. Вот вам яркий пример современных тенденций — глубокий уровень погружения создаёт предпосылки для своевременного выполнения сверхзадачи. И нет сомнений, что акционеры крупнейших компаний, инициированные исключительно синтетически, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу.'
-              />
-              <Review name='Екатерина Беляева' date='18 февраля 2018' />
-            </div>
-            <div className='review-button'>
-              <button type='submit' className='book-button available' data-test-id='button-rating'>
-                оценить книгу
-              </button>
-            </div>
-          </div>
+          <BookPageRating />
+          <BookPageInfoTable />
+          <BookPageReviews />
         </div>
       </main>
     </section>

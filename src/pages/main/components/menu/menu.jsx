@@ -30,20 +30,6 @@ export const Menu = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
-  // function eventHandler(event) {
-  //   console.log(isMenuOpenContext, 'isMenuOpenContext');
-  //   console.log(!event.target.classList.contains('menu') || !event.target.classList.contains('header-burger-button'));
-  // }
-
-  // useEffect(() => {
-  //   if (isMenuOpenContext === true) {
-  //     window.addEventListener('click', eventHandler);
-  //   }
-  //   if (isMenuOpenContext === false) {
-  //     window.removeEventListener('click', eventHandler);
-  //   }
-  // });
-
   return (
     <div className={classNames('menu', { menuOpen: isMenuOpenContext })} data-test-id='burger-navigation'>
       <div className='menu-item'>

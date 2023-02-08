@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -13,7 +13,20 @@ import './header.css';
 export const Header = () => {
   const userName = 'Иван';
 
-  const { isMenuOpenContext, toggleMenuMode } = useContext(MenuContext);
+  const { isMenuOpenContext, toggleMenuMode, closeMenu } = useContext(MenuContext);
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!ref.current.contains(e.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref]);
 
   return (
     <section className='header-section'>
@@ -24,7 +37,7 @@ export const Header = () => {
               <img src={logo} alt='Cleverland Logo' />
             </NavLink>
           </div>
-          <div className='header-burger'>
+          <div className='header-burger' ref={ref}>
             <button
               type='button'
               onClick={toggleMenuMode}
@@ -62,6 +75,7 @@ export const Header = () => {
                 </svg>
               </span>
             </button>
+            {window.innerWidth <= 1200 ? <Menu /> : null}
           </div>
           <h1>Библиотека</h1>
           <div className='header-user'>
@@ -69,7 +83,6 @@ export const Header = () => {
             <img src={userImg} alt='User' />
           </div>
         </div>
-        {window.innerWidth <= 1200 ? <Menu /> : null}
       </header>
     </section>
   );
