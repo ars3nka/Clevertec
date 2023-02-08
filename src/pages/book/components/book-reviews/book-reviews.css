@@ -1,0 +1,20 @@
+.book-reviews-header {
+  display: flex;
+  align-items: center;
+}
+
+.book-reviews-count {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  color: #a7a7a7 !important;
+  margin-left: 6px;
+}
+
+.book-reviews-button {
+  margin-left: 29px;
+}
+
+.bookReviewsButtonOpen {
+  transform: rotate(-180deg);
+}
