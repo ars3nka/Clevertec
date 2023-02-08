@@ -11,12 +11,9 @@ export const MainPage = () => (
   <section className='main-wrapper main-section'>
     <main>
       <div className='main'>
-        <div className='main-left'>
-          <Menu />
-        </div>
+        <div className='main-left'>{window.innerWidth >= 1200 ? <Menu /> : null}</div>
         <div className='main-right'>
           <NavigationList />
-          {/* {ViewListMode ? <BooksList books={booksData} /> : <Books books={booksData} />} */}
           <Books books={booksData} />
           <BooksList books={booksData} />
         </div>

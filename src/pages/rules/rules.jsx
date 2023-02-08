@@ -3,7 +3,7 @@ import { Menu } from '../main/components/menu/menu';
 import './rules.css';
 
 export const RulesPage = () => (
-  <section className='main-wrapper'>
+  <section className='main-wrapper rules-wrapper'>
     <main>
       <div className='main'>
         <div className='main-left'>

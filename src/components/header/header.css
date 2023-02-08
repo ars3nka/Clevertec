@@ -45,17 +45,19 @@
   align-items: center; */
 }
 
-.header-burger {
+.header-burger,
+.header-section .menu {
   display: none;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1200px) {
   .header {
     max-width: 1110px;
     width: 100%;
     padding: 0 64px 0 64px;
     height: 96px;
   }
+
   .header h1 {
     margin-right: 0px;
   }

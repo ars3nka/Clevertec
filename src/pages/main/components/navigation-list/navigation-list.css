@@ -155,7 +155,7 @@
     height: 32px;
   }
   .search-active {
-    width: 80vw !important;
+    width: 86vw !important;
     margin-right: 0px !important;
   }
 
@@ -164,5 +164,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .search-active {
+    width: 81vw !important;
   }
 }

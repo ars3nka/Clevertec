@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { MenuContext } from '../../pages/layout/layout';
+import { Menu } from '../../pages/main/components/menu/menu';
 
 import userImg from './img/avatar.png';
 import logo from './img/logo.svg';
@@ -24,7 +25,12 @@ export const Header = () => {
             </NavLink>
           </div>
           <div className='header-burger'>
-            <button type='button' onClick={toggleMenuMode} data-test-id='button-burger'>
+            <button
+              type='button'
+              onClick={toggleMenuMode}
+              data-test-id='button-burger'
+              className='header-burger-button'
+            >
               <span className={classNames('header-burger-line', { active: isMenuOpenContext })}>
                 <svg width='28' height='4' viewBox='0 0 28 4' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
@@ -63,6 +69,7 @@ export const Header = () => {
             <img src={userImg} alt='User' />
           </div>
         </div>
+        {window.innerWidth <= 1200 ? <Menu /> : null}
       </header>
     </section>
   );

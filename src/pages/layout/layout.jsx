@@ -14,9 +14,16 @@ export const Layout = () => {
     console.log(isMenuOpen ? 'Menu is closed' : 'Menu is open');
   }
 
+  function closeMenu() {
+    toggleMenu(false);
+    console.log(isMenuOpen ? 'Menu is closed' : 'Menu is open');
+  }
+
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <MenuContext.Provider value={{ isMenuOpenContext: isMenuOpen, toggleMenuMode: () => toggleMenuMode() }}>
+    <MenuContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
+      value={{ isMenuOpenContext: isMenuOpen, toggleMenuMode: () => toggleMenuMode(), closeMenu: () => closeMenu() }}
+    >
       <div className='wrapper'>
         <Header />
         <Outlet />

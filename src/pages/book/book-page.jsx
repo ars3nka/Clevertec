@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { booksData } from '../../db';
 
 import { Review } from './components/book-review/book-review';
 import { BookSwiper } from './components/book-swiper/book-swiper';
 import altImage from './img/altImage.jpg';
+import { ReactComponent as ReviewButton } from './img/review_open.svg';
 
 import './book-page.css';
 
@@ -15,6 +18,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 export const BookPage = () => {
+  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+
   const params = useParams();
   const { id } = params;
   const book = booksData.find((book) => book.id === Number(id));
@@ -121,9 +126,19 @@ export const BookPage = () => {
             </div>
           </div>
           <div className='book-about book-reviews'>
-            <h5>Отзывы</h5>
+            <div className='book-about book-reviews-header'>
+              <h5>Отзывы</h5>
+              <p className='book-about book-reviews-count'>3</p>
+              <ReviewButton
+                className={classNames('book-about book-reviews-button', { bookReviewsButtonOpen: isReviewsOpen })}
+                onClick={() => setIsReviewsOpen(!isReviewsOpen)}
+                data-test-id='button-hide-reviews'
+              />
+            </div>
+
             <div className='line book-line' />
-            <div className='reviews'>
+
+            <div className={classNames('reviews', { hide: !isReviewsOpen })}>
               <Review name='Иван Иванов' date='5 января 2019' />
               <Review
                 name='Николай Качков'
@@ -133,7 +148,7 @@ export const BookPage = () => {
               <Review name='Екатерина Беляева' date='18 февраля 2018' />
             </div>
             <div className='review-button'>
-              <button type='submit' className='book-button available'>
+              <button type='submit' className='book-button available' data-test-id='button-rating'>
                 оценить книгу
               </button>
             </div>

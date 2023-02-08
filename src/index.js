@@ -22,6 +22,7 @@ root.render(
         <Route path='/contract' element={<ContractPage />} />
         <Route path='/book/:category/:id' element={<BookPage />} />
       </Route>
+      <Route path='*' element={<Layout />} />
     </Routes>
   </HashRouter>
 );
