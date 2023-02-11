@@ -1,0 +1,242 @@
+.book-page .main-left {
+  max-width: 445px;
+  margin-right: 30px;
+}
+
+.book-page .main-right {
+  max-width: 635px;
+}
+
+.book-page .book-route {
+  background-color: #f9f9fa;
+  /* width: 100vw; */
+  height: 64px;
+  padding: 20px 0px 20px 165px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #a7a7a7;
+  margin-bottom: 42px;
+}
+
+.book-page .book-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #363636;
+  line-height: 40px;
+  margin-bottom: 24px;
+}
+
+.book-page .book-author {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 32px;
+}
+
+.book-page .book-button {
+  margin-bottom: 62px;
+  width: 350px;
+  height: 52px;
+  border-radius: 30px;
+}
+
+.book-page .book-picture .big-image,
+.book-page .swiper-slide .big-image {
+  width: 445px;
+  height: 593px;
+}
+
+.book-page .swiper-slide .thumb-image {
+  height: 86px;
+}
+
+.book-page .book-about h5 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #363636;
+}
+
+.book-page .book-about p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #363636;
+}
+
+.book-bottom {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.book-bottom .book-line {
+  background-color: #ebebeb;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  max-width: 350px;
+}
+
+.review-button .book-button {
+  margin-bottom: 42px;
+}
+
+.book-page .book-picture img {
+  border: 0px;
+}
+
+@media screen and (max-width: 1235px) {
+  .book-page .main,
+  .book-page .book-bottom {
+    padding: 0 64px 0 64px;
+  }
+  .book-page .book-route {
+    padding: 20px 0px 20px 64px;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .book-page .book-route {
+    height: 88px;
+  }
+  .book-page .book-picture,
+  .book-page .book-picture .big-image {
+    width: 136px;
+    height: 198px;
+  }
+  .book-page .book-picture .big-image {
+    border-radius: 3px;
+  }
+  .book-page .main-left {
+    height: 198px;
+    width: 136px;
+  }
+  .book-page .main-right {
+    padding: 0px;
+  }
+  .book-page .book-title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 32px;
+  }
+  .book-page .book-author {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .book-page .book-button {
+    width: 306px;
+    height: 52px;
+    margin-bottom: 48px;
+  }
+  .book-more .information .category {
+    /* padding-right: 33px; */
+    padding-right: 18px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .book-more .information td {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .td-main {
+    padding-right: 30px;
+  }
+  .book-page .book-about h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .review-button .book-button {
+    width: 100%;
+    height: 52px;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .td-main {
+    display: none;
+  }
+  .book-page .main {
+    flex-direction: column;
+  }
+  .book-page .main-left {
+    margin: 0 auto;
+    height: 260px;
+    width: 188px;
+    margin-bottom: 16px;
+  }
+  .book-page .book-picture,
+  .book-page .book-picture .big-image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .book-page .book-picture {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .book-page .book-picture,
+  .book-page .book-picture .big-image {
+    width: 188px !important;
+    height: 260px !important;
+  }
+  .book-page .book-route {
+    height: 92px;
+    padding: 20px 16px 20px 16px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 20px;
+  }
+  .book-page .main,
+  .book-page .book-bottom {
+    padding: 0 16px 0 16px;
+  }
+  .book-page .main {
+    margin-bottom: 42px;
+  }
+  .book-page .book-title {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .book-page .book-author {
+    margin-top: 0px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 42px;
+  }
+  .book-page .book-button {
+    width: 100%;
+    margin-bottom: 42px;
+  }
+  .book-page .book-about h5 {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .book-page .book-about p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .book-more .information .category {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .book-more .information td {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

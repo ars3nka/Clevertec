@@ -1,0 +1,57 @@
+.review {
+  margin-bottom: 42px;
+}
+
+.review-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.review-head img,
+.review-name {
+  margin-right: 24px;
+}
+
+.review-name,
+.review-date {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #727272;
+}
+
+.review-rating {
+  margin-bottom: 16px;
+}
+
+.review-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #363636;
+  max-width: 730px;
+}
+
+@media screen and (max-width: 420px) {
+  .review-name,
+  .review-date,
+  .review-text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .review-head {
+    margin-bottom: 10.25px;
+  }
+  .review {
+    margin-bottom: 35px;
+  }
+  .review-head .review-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .review-name {
+    margin-bottom: 3px;
+  }
+}

@@ -1,0 +1,124 @@
+.menu-item {
+  margin-bottom: 42px;
+  width: 255px;
+}
+
+.menu-item .submenu {
+  display: none;
+}
+
+.menu-item-active .submenu {
+  margin-top: 16px;
+  display: block;
+}
+
+.show {
+  display: block !important;
+}
+
+.menu-header {
+  color: #363636;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+}
+
+.menu-header:hover {
+  cursor: pointer;
+}
+
+.menu-item-active .menu-header {
+  width: 255px;
+  color: #f83600;
+  /* color: linear-gradient(233.73deg, #f83600 -16.08%, #f9d423 327.37%); */
+  font-weight: 700;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f83600;
+}
+
+.menu-header:hover {
+  color: #f9d423;
+}
+
+.line {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  width: 255px;
+  height: 1px;
+  background-color: #f83600;
+}
+
+.submenu-all {
+  font-size: 18px;
+  font-weight: 700;
+  /* color: #f83600; */
+  margin-bottom: 16px;
+}
+
+.submenu-active .submenu-all {
+  color: #f83600 !important;
+}
+
+.submenu {
+  margin-left: 20px !important;
+}
+
+.menu-burger {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-section .main-left,
+  .contract-wrapper .main-left,
+  .rules-wrapper .main-left {
+    display: none;
+  }
+  .menu {
+    position: absolute;
+    left: -500px;
+    background-color: #f9f9fa;
+    /* transition: all 0.3s ease-in-out; */
+  }
+  .menuOpen {
+    left: 64px;
+    top: 90px;
+    padding: 32px;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+      0px 1px 5px rgba(191, 196, 201, 0.24);
+  }
+  .menu-burger {
+    display: block;
+    border-top: 1px solid #bfc4c9;
+    padding-top: 42px;
+  }
+  .header-section .menu {
+    display: block;
+    width: 502px;
+  }
+  .menu-item {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .menuOpen {
+    left: 16px;
+    top: 76px;
+  }
+  .header-section .menu {
+    width: 288px;
+  }
+  .header-section .menuOpen {
+    padding: 0px;
+    padding-top: 32px;
+    padding-left: 6px;
+  }
+  .menu .menu-item {
+    margin-left: 16px;
+  }
+  .menu .submenu {
+    width: calc(100% - 50px);
+  }
+}
