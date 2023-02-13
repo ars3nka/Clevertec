@@ -17,16 +17,16 @@ export const Header = () => {
 
   const ref = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!ref.current.contains(e.target)) {
-        closeMenu();
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (!ref.current.contains(e.target)) {
+  //       closeMenu();
+  //     }
+  //   };
 
-    document.addEventListener('click', handleClickOutside);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref]);
+  //   document.addEventListener('click', handleClickOutside);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [ref]);
 
   return (
     <section className='header-section'>

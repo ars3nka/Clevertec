@@ -2,8 +2,8 @@
   margin-bottom: 16px;
 }
 
-.menu-genre-active .menu-genre-genre {
-  color: #f83600 !important;
+.menu-genre-active .menu-genre .menu-genre-genre {
+  color: #f83600;
 }
 
 .menu-genre button:hover,
@@ -13,8 +13,6 @@
 }
 
 .menu-genre button {
-  /* display: flex;
-  flex-direction: row; */
   width: 100%;
 }
 
@@ -30,8 +28,3 @@
   color: #a7a7a7;
   display: inline-block;
 }
-
-/* .menu-genre-genre-genre {
-  display: inline-block !important;
-  max-width: 100% !important;
-} */

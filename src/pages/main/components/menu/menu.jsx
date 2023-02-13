@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -10,6 +11,8 @@ import { menugenreDB } from './menugenre-db';
 import './menu.css';
 
 export const Menu = () => {
+  const booksCategories = useSelector((state) => state.books.booksCategories);
+
   const [isBookMenuShown, setIsBookMenuShown] = useState(false);
 
   const toggleBookMenu = () => {
@@ -19,7 +22,7 @@ export const Menu = () => {
   };
 
   const { isMenuOpenContext, closeMenu } = useContext(MenuContext);
-  const menuElements = menugenreDB.map(({ genre, amount, id }) => <MenuGenre genre={genre} amount={amount} id={id} />);
+  const menuElements = booksCategories.map(({ name, path, id }) => <MenuGenre name={name} path={path} id={id} />);
 
   const location = useLocation();
 

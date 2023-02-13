@@ -5,13 +5,13 @@ import './books.css';
 export const Books = ({ books }) => {
   const booksElements = books.map((book) => (
     <Book
-      src={book.src}
+      image={book.image}
       rating={book.rating}
       title={book.title}
-      author={book.author}
-      available={book.available}
+      authors={book.authors}
+      booking={book.booking}
       id={book.id}
-      category={book.category}
+      category={book.categories}
     />
   ));
 

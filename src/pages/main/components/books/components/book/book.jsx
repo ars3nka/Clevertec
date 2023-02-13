@@ -5,22 +5,22 @@ import altImage from './img/BookAltImage.png';
 
 import './book.css';
 
-export const Book = ({ src, rating, title, author, available, id, category }) => (
-  <NavLink to={`/book/${category}/${id}`}>
+export const Book = ({ image, rating, title, authors, booking, id, category }) => (
+  <NavLink to={`${id}`}>
     <div className='book' data-test-id='card'>
       <div className='book-picture'>
-        <img src={src || altImage} alt='Book' />
+        <img src={`https://strapi.cleverland.by${image?.url}` || altImage} alt='Book' />
       </div>
-      <div>{typeof rating === 'string' ? rating : <StarRating rating={rating} />}</div>
+      <div>{rating === null ? 'еще нет оценок' : <StarRating rating={rating} />}</div>
       <div className='book-title'>{title}</div>
-      <div className='book-author'>{author}</div>
-      {available === true ? (
+      <div className='book-author'>{authors}</div>
+      {booking === null ? (
         <button type='submit' className='book-button available'>
           Забронировать
         </button>
       ) : (
         <button type='submit' className='book-button'>
-          {available}
+          Забронирована
         </button>
       )}
     </div>

@@ -9,6 +9,7 @@
 
 .menu-item-active .submenu {
   margin-top: 16px;
+  margin-left: 20px;
   display: block;
 }
 
@@ -30,7 +31,6 @@
 .menu-item-active .menu-header {
   width: 255px;
   color: #f83600;
-  /* color: linear-gradient(233.73deg, #f83600 -16.08%, #f9d423 327.37%); */
   font-weight: 700;
   padding-bottom: 8px;
   border-bottom: 1px solid #f83600;
@@ -51,16 +51,11 @@
 .submenu-all {
   font-size: 18px;
   font-weight: 700;
-  /* color: #f83600; */
   margin-bottom: 16px;
 }
 
 .submenu-active .submenu-all {
-  color: #f83600 !important;
-}
-
-.submenu {
-  margin-left: 20px !important;
+  color: #f83600;
 }
 
 .menu-burger {
@@ -77,7 +72,6 @@
     position: absolute;
     left: -500px;
     background-color: #f9f9fa;
-    /* transition: all 0.3s ease-in-out; */
   }
   .menuOpen {
     left: 64px;

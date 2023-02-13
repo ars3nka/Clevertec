@@ -1,6 +1,12 @@
+import { useEffect, useState } from 'react';
+import Lottie from 'react-lottie';
+import { useSelector } from 'react-redux/es/exports';
 import { useParams } from 'react-router-dom';
 
+import { LottieLoader } from '../../components/loader/loader';
+import * as animationData from '../../components/loader/loader.json';
 import { booksData } from '../../db';
+import { service } from '../../service';
 
 import { BookPageInfoTable } from './components/book-info-table/book-info-table';
 import { BookPageRating } from './components/book-rating/book-rating';
@@ -17,11 +23,44 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 export const BookPage = () => {
+  const [book, setBook] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
   const { id } = params;
-  const book = booksData.find((book) => book.id === Number(id));
+  // const books = useSelector((state) => state.books.books);
+  // const book = books.find((book) => book.id === Number(id));
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+  };
+
+  const getBook = async () => {
+    try {
+      setIsLoading(true);
+      const responce = await service.get(`/api/books/${id}`);
+      setBook(responce.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getBook();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   console.log('Книга:', book);
+
+  if (isLoading) {
+    return (
+      <div className='loader' data-test-id='loader'>
+        <Lottie options={defaultOptions} width={150} height={150} />
+      </div>
+    );
+  }
 
   return (
     <section className='main-wrapper book-page'>
@@ -42,28 +81,19 @@ export const BookPage = () => {
           <div className='main-right'>
             <h3 className='book-title'>{book.title}</h3>
 
-            <h5 className='book-author'>{book.author}</h5>
+            <h5 className='book-author'>{book.authors}</h5>
             <button type='submit' className='book-button available'>
               Забронировать
             </button>
             <div className='book-about'>
               <h5>О книге</h5>
-              <p>
-                Алгоритмы — это всего лишь пошаговые алгоритмы решения задач, и большинство таких задач уже были кем-то
-                решены, протестированы и проверены. Можно, конечно, погрузится в глубокую философию гениального Кнута,
-                изучить многостраничные фолианты с доказательствами и обоснованиями, но хотите ли вы тратить на это свое
-                время?
-                <br />
-                <br />
-                Откройте великолепно иллюстрированную книгу и вы сразу поймете, что алгоритмы — это просто. А грокать
-                алгоритмы — это веселое и увлекательное занятие.
-              </p>
+              <p className='book-description'>{book.description}</p>
             </div>
           </div>
         </div>
         <div className='book-bottom'>
-          <BookPageRating />
-          <BookPageInfoTable />
+          <BookPageRating rating={book.rating} />
+          <BookPageInfoTable book={book} />
           <BookPageReviews />
         </div>
       </main>
