@@ -7,7 +7,7 @@ const initialState = {
   books: [],
   booksCategories: [],
   loading: false,
-  loadingCategories: false,
+  loadingCategories: true,
   error: null,
 };
 

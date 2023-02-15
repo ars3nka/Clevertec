@@ -1,7 +1,7 @@
 import './book-rating.css';
 
 export const BookPageRating = ({ rating }) => {
-  const starEmpty = 5 - rating;
+  const starEmpty = 5 - Math.round(rating);
 
   const stars = () => {
     const starsArray = [];

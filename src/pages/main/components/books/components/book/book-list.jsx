@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { BASE_URL } from '../../../../../../service';
+
 import { StarRating } from './components/star-rating/star-rating';
 import altImage from './img/BookAltImage.png';
 
@@ -9,7 +11,7 @@ export const BookList = ({ image, rating, title, authors, available, id, categor
   <NavLink to={`/books/${category}/${id}`}>
     <div className='book-list' data-test-id='card'>
       <div className='book-picture book-list-picture'>
-        <img src={`https://strapi.cleverland.by${image?.url}` || altImage} alt='Book' />
+        <img src={image ? BASE_URL + image.url : altImage} alt='Book' />
       </div>
       <div className='book-list-left-container'>
         <div className='book-list-title'>{title}</div>

@@ -1,8 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { BASE_URL } from '../../../../service';
+import altImage from '../../img/altImage.jpg';
 
 import './book-swiper.css';
 
@@ -13,6 +17,16 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 export const BookSwiper = ({ gallery }) => {
+  if (gallery === null || gallery.length === 0) {
+    return <img src={altImage} alt='' className='big-image' data-test-id='slide-big' />;
+  }
+
+  if (gallery.length === 1) {
+    return <img src={BASE_URL + gallery[0].url} alt='' className='big-image' data-test-id='slide-big' />;
+  }
+
+  const urlArray = gallery.map((item) => item.url);
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   // const [paginationSwiper, setPaginationSwiper] = useState(false);
   // let screenWidth = window.screen.width;
@@ -29,15 +43,15 @@ export const BookSwiper = ({ gallery }) => {
   //   console.log(screenWidth);
   // });
 
-  const GalleryElements = gallery.map((image) => (
+  const GalleryElements = urlArray.map((image) => (
     <SwiperSlide>
-      <img src={image} alt='nature' className='big-image' data-test-id='slide-mini' />
+      <img src={BASE_URL + image} alt='nature' className='big-image' data-test-id='slide-mini' />
     </SwiperSlide>
   ));
 
-  const ThumbsElements = gallery.map((image) => (
+  const ThumbsElements = urlArray.map((image) => (
     <SwiperSlide>
-      <img src={image} alt='nature' className='thumb-image' data-test-id='slide-mini' />
+      <img src={BASE_URL + image} alt='nature' className='thumb-image' data-test-id='slide-mini' />
     </SwiperSlide>
   ));
 

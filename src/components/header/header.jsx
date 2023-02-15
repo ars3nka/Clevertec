@@ -33,7 +33,7 @@ export const Header = () => {
       <header>
         <div className='header'>
           <div className='header-logo'>
-            <NavLink to='/'>
+            <NavLink to='/books/all'>
               <img src={logo} alt='Cleverland Logo' />
             </NavLink>
           </div>

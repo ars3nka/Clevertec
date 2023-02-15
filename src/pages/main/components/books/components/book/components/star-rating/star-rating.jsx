@@ -1,5 +1,5 @@
 export const StarRating = ({ rating }) => {
-  const starEmpty = 5 - rating;
+  const starEmpty = 5 - Math.round(rating);
 
   const stars = () => {
     const starsArray = [];

@@ -3,10 +3,8 @@ import Lottie from 'react-lottie';
 import { useSelector } from 'react-redux/es/exports';
 import { useParams } from 'react-router-dom';
 
-import { LottieLoader } from '../../components/loader/loader';
 import * as animationData from '../../components/loader/loader.json';
-import { booksData } from '../../db';
-import { service } from '../../service';
+import { BASE_URL, service } from '../../service';
 
 import { BookPageInfoTable } from './components/book-info-table/book-info-table';
 import { BookPageRating } from './components/book-rating/book-rating';
@@ -24,7 +22,7 @@ import 'swiper/css/thumbs';
 
 export const BookPage = () => {
   const [book, setBook] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const { id } = params;
   // const books = useSelector((state) => state.books.books);
@@ -66,16 +64,12 @@ export const BookPage = () => {
     <section className='main-wrapper book-page'>
       <main>
         <div className='book-route'>
-          Бизнес книги / Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих
+          {book.categories} / {book.title}
         </div>
         <div className='main'>
           <div className='main-left'>
             <div className='book-picture'>
-              {book.gallery ? (
-                <BookSwiper gallery={book.gallery} />
-              ) : (
-                <img src={book.src || altImage} alt='' className='big-image' data-test-id='slide-big' />
-              )}
+              <BookSwiper gallery={book.images} />
             </div>
           </div>
           <div className='main-right'>
