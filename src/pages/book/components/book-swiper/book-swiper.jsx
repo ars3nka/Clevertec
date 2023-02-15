@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { BASE_URL } from '../../../../service';
+import { BASE_URL } from '../../../../redux/api';
 import altImage from '../../img/altImage.jpg';
 
 import './book-swiper.css';

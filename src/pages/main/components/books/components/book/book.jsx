@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
-import { BASE_URL } from '../../../../../../service';
+import { BASE_URL } from '../../../../../../redux/api';
 
 import { StarRating } from './components/star-rating/star-rating';
 import altImage from './img/BookAltImage.png';
 
 import './book.css';
 
-export const Book = ({ image, rating, title, authors, booking, id, category }) => (
+export const Book = ({ image, rating, title, authors, booking, id }) => (
   <NavLink to={`${id}`}>
     <div className='book' data-test-id='card'>
       <div className='book-picture'>

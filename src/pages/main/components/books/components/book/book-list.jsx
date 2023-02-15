@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { BASE_URL } from '../../../../../../service';
+import { BASE_URL } from '../../../../../../redux/api';
 
 import { StarRating } from './components/star-rating/star-rating';
 import altImage from './img/BookAltImage.png';

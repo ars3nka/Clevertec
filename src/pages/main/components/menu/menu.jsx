@@ -1,17 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useContext, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
+import { useGetCategoriesQuery } from '../../../../redux/api';
 import { MenuContext } from '../../../layout/layout';
 
 import { MenuGenre } from './components/menu-genre/menu-genre';
-import { menugenreDB } from './menugenre-db';
 
 import './menu.css';
 
-export const Menu = () => {
-  const booksCategories = useSelector((state) => state.books.booksCategories);
+export const Menu = ({ test }) => {
+  console.log(test);
+  const { data: booksCategories } = useGetCategoriesQuery();
 
   const [isBookMenuShown, setIsBookMenuShown] = useState(false);
 
@@ -22,11 +23,9 @@ export const Menu = () => {
   };
 
   const { isMenuOpenContext, closeMenu } = useContext(MenuContext);
-  const menuElements = booksCategories.map(({ name, path, id }) => <MenuGenre name={name} path={path} id={id} />);
+  const menuElements = booksCategories?.map(({ name, path, id }) => <MenuGenre name={name} path={path} id={id} />);
 
   const location = useLocation();
-
-  console.log(location.pathname);
 
   useEffect(() => {
     closeMenu();
@@ -39,7 +38,7 @@ export const Menu = () => {
         <NavLink
           to='/books/all'
           className={location.pathname.includes('books') || location.pathname === '/' ? 'menu-item-active' : null}
-          data-test-id='burger-showcase'
+          data-test-id={`${test}-showcase`}
         >
           <button
             type='button'
@@ -48,7 +47,6 @@ export const Menu = () => {
               toggleBookMenu();
             }}
             id='books'
-            data-test-id='navigation-showcase'
           >
             Витрина книг
           </button>
@@ -70,9 +68,9 @@ export const Menu = () => {
         <NavLink
           to='/terms'
           className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
-          data-test-id='burger-terms'
+          data-test-id={`${test}-terms`}
         >
-          <button type='button' className='menu-header' id='terms' data-test-id='navigation-terms'>
+          <button type='button' className='menu-header' id='terms'>
             Правила пользования
           </button>
         </NavLink>
@@ -81,9 +79,9 @@ export const Menu = () => {
         <NavLink
           to='/contract'
           className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
-          data-test-id='burger-contract'
+          data-test-id={`${test}-contract`}
         >
-          <button type='button' className='menu-header' id='contract' data-test-id='navigation-contract'>
+          <button type='button' className='menu-header' id='contract'>
             Договор оферты
           </button>
         </NavLink>

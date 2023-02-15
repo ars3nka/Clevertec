@@ -1,9 +1,12 @@
 import { useContext, useEffect, useRef } from 'react';
+import Lottie from 'react-lottie';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { MenuContext } from '../../pages/layout/layout';
 import { Menu } from '../../pages/main/components/menu/menu';
+import { useGetCategoriesQuery } from '../../redux/api';
+import * as animationData from '../loader/loader.json';
 
 import userImg from './img/avatar.png';
 import logo from './img/logo.svg';
@@ -12,7 +15,7 @@ import './header.css';
 
 export const Header = () => {
   const userName = 'Иван';
-
+  // const { isLoading: categoriesLoading } = useGetCategoriesQuery();
   const { isMenuOpenContext, toggleMenuMode, closeMenu } = useContext(MenuContext);
 
   const ref = useRef(null);
@@ -27,6 +30,20 @@ export const Header = () => {
   //   document.addEventListener('click', handleClickOutside);
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [ref]);
+
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData,
+  // };
+
+  // if (categoriesLoading) {
+  //   return (
+  //     <div className='loader' data-test-id='loader'>
+  //       <Lottie options={defaultOptions} width={150} height={150} />
+  //     </div>
+  //   );
+  // }
 
   return (
     <section className='header-section'>
@@ -75,7 +92,7 @@ export const Header = () => {
                 </svg>
               </span>
             </button>
-            {window.innerWidth <= 1200 ? <Menu /> : null}
+            {window.innerWidth <= 1200 ? <Menu test='burger' /> : null}
           </div>
           <h1>Библиотека</h1>
           <div className='header-user'>

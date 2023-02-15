@@ -1,16 +1,14 @@
-import { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
-import { useSelector } from 'react-redux/es/exports';
 import { useParams } from 'react-router-dom';
 
+import { Error } from '../../components/error/error';
 import * as animationData from '../../components/loader/loader.json';
-import { BASE_URL, service } from '../../service';
+import { useGetBookByIdQuery } from '../../redux/api';
 
 import { BookPageInfoTable } from './components/book-info-table/book-info-table';
 import { BookPageRating } from './components/book-rating/book-rating';
 import { BookPageReviews } from './components/book-reviews/book-reviews';
 import { BookSwiper } from './components/book-swiper/book-swiper';
-import altImage from './img/altImage.jpg';
 
 import './book-page.css';
 
@@ -21,12 +19,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 export const BookPage = () => {
-  const [book, setBook] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const { id } = params;
-  // const books = useSelector((state) => state.books.books);
-  // const book = books.find((book) => book.id === Number(id));
 
   const defaultOptions = {
     loop: true,
@@ -34,21 +28,7 @@ export const BookPage = () => {
     animationData,
   };
 
-  const getBook = async () => {
-    try {
-      setIsLoading(true);
-      const responce = await service.get(`/api/books/${id}`);
-      setBook(responce.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getBook();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { data: book, isLoading, error } = useGetBookByIdQuery(id);
 
   console.log('Книга:', book);
 
@@ -58,6 +38,10 @@ export const BookPage = () => {
         <Lottie options={defaultOptions} width={150} height={150} />
       </div>
     );
+  }
+
+  if (error) {
+    return <Error />;
   }
 
   return (
@@ -88,7 +72,7 @@ export const BookPage = () => {
         <div className='book-bottom'>
           <BookPageRating rating={book.rating} />
           <BookPageInfoTable book={book} />
-          <BookPageReviews />
+          <BookPageReviews comments={book.comments} />
         </div>
       </main>
     </section>
