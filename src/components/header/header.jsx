@@ -92,7 +92,7 @@ export const Header = () => {
                 </svg>
               </span>
             </button>
-            {window.innerWidth <= 1200 ? <Menu test='burger' /> : null}
+            {/* {window.innerWidth <= 1200 ? <Menu test='burger' /> : null} */}
           </div>
           <h1>Библиотека</h1>
           <div className='header-user'>

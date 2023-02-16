@@ -63,9 +63,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .main-section .main-left,
-  .contract-wrapper .main-left,
-  .rules-wrapper .main-left {
+  .main-wrapper .main-left {
     display: none;
   }
   .menu {

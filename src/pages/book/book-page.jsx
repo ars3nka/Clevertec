@@ -1,5 +1,5 @@
 import Lottie from 'react-lottie';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Error } from '../../components/error/error';
 import * as animationData from '../../components/loader/loader.json';
@@ -48,7 +48,9 @@ export const BookPage = () => {
     <section className='main-wrapper book-page'>
       <main>
         <div className='book-route'>
-          {book.categories} / {book.title}
+          <Link to={`/books/${params.category}`}>
+            {book.categories} / {book.title}
+          </Link>
         </div>
         <div className='main'>
           <div className='main-left'>

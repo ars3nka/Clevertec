@@ -6,6 +6,7 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { BookPage } from './pages/book';
 import { ContractPage } from './pages/contract/contract';
 import { Layout } from './pages/layout/layout';
+import { LayoutMainPage } from './pages/layout-main-page/layout-main-page';
 import { MainPage } from './pages/main/main-page';
 import { RulesPage } from './pages/rules/rules';
 import { store } from './redux/store';
@@ -19,11 +20,13 @@ root.render(
     <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Navigate to='/books/all' />} />
-          <Route path='/books/*' element={<MainPage />} />
-          <Route path='/books/:category' element={<MainPage />} />
-          <Route path='/terms' element={<RulesPage />} />
-          <Route path='/contract' element={<ContractPage />} />
+          <Route element={<LayoutMainPage />}>
+            <Route path='/' element={<Navigate to='/books/all' />} />
+            <Route path='/books/*' element={<MainPage />} />
+            <Route path='/books/:category' element={<MainPage />} />
+            <Route path='/terms' element={<RulesPage />} />
+            <Route path='/contract' element={<ContractPage />} />
+          </Route>
           <Route path='/books/:category/:id' element={<BookPage />} />
         </Route>
         <Route path='*' element={<Layout />} />
