@@ -12,7 +12,7 @@ import './menu.css';
 
 export const Menu = ({ test }) => {
   console.log(test);
-  const { data: booksCategories } = useGetCategoriesQuery();
+  const { data: booksCategories = [], error: categoriesError, isError } = useGetCategoriesQuery();
 
   const [isBookMenuShown, setIsBookMenuShown] = useState(false);
 
@@ -29,6 +29,7 @@ export const Menu = ({ test }) => {
 
   useEffect(() => {
     closeMenu();
+    // ломается если добавить функцию в зависимость
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
@@ -50,18 +51,22 @@ export const Menu = ({ test }) => {
           >
             Витрина книг
           </button>
-          <ul className={classNames('submenu', { hide: isBookMenuShown })} id='submenu'>
-            <NavLink
-              to='/books/all'
-              className={location.pathname.includes('books/all') || location.pathname === '/' ? 'submenu-active' : null}
-              data-test-id='burger-books'
-            >
-              <button type='button' className='submenu-all' data-test-id='navigation-books'>
-                Все книги
-              </button>
-            </NavLink>
-            {menuElements}
-          </ul>
+          {categoriesError ? null : (
+            <ul className={classNames('submenu', { hide: isBookMenuShown })} id='submenu'>
+              <NavLink
+                to='/books/all'
+                className={
+                  location.pathname.includes('books/all') || location.pathname === '/' ? 'submenu-active' : null
+                }
+                data-test-id='burger-books'
+              >
+                <button type='button' className='submenu-all' data-test-id='navigation-books'>
+                  Все книги
+                </button>
+              </NavLink>
+              {menuElements}
+            </ul>
+          )}
         </NavLink>
       </div>
       <div className='menu-item'>

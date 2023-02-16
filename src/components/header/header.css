@@ -40,13 +40,9 @@
 
 .header h1 {
   margin-right: 435px;
-  /* height: 40px;
-  display: flex;
-  align-items: center; */
 }
 
-.header-burger,
-.header-section .menu {
+.header-burger {
   display: none;
 }
 

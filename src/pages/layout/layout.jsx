@@ -9,15 +9,15 @@ export const MenuContext = createContext({});
 export const Layout = () => {
   const [isMenuOpen, toggleMenu] = useState(false);
 
-  function toggleMenuMode() {
+  const toggleMenuMode = () => {
     toggleMenu(!isMenuOpen);
     console.log(isMenuOpen ? 'Menu is closed' : 'Menu is open');
-  }
+  };
 
-  function closeMenu() {
+  const closeMenu = () => {
     toggleMenu(false);
     console.log(isMenuOpen ? 'Menu is closed' : 'Menu is open');
-  }
+  };
 
   return (
     <MenuContext.Provider

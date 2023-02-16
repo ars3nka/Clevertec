@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useParams } from 'react-router-dom';
 
 import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux/api';
@@ -10,7 +11,11 @@ import './main-page.css';
 
 export const MainPage = () => {
   const { isLoading: booksLoading, error: booksError, data: books } = useGetBooksQuery();
-  const { isLoading: categoriesLoading, error: categoriesError, data: booksCategories } = useGetCategoriesQuery();
+  const { isLoading: categoriesLoading, error: booksCategoriesError, data: booksCategories } = useGetCategoriesQuery();
+
+  if (booksError || booksCategoriesError) {
+    return null;
+  }
 
   const categoriesState = categoriesLoading;
   const params = useParams();

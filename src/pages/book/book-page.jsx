@@ -12,7 +12,6 @@ import { BookSwiper } from './components/book-swiper/book-swiper';
 
 import './book-page.css';
 
-// import './styles.css';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
@@ -32,7 +31,7 @@ export const BookPage = () => {
 
   console.log('Книга:', book);
 
-  if (isLoading) {
+  if (isLoading && !error) {
     return (
       <div className='loader' data-test-id='loader'>
         <Lottie options={defaultOptions} width={150} height={150} />
@@ -40,42 +39,44 @@ export const BookPage = () => {
     );
   }
 
-  if (error) {
-    return <Error />;
-  }
-
   return (
     <section className='main-wrapper book-page'>
       <main>
         <div className='book-route'>
           <Link to={`/books/${params.category}`}>
-            {book.categories} / {book.title}
+            {book?.categories || params.category} / {book?.title}
           </Link>
         </div>
-        <div className='main'>
-          <div className='main-left'>
-            <div className='book-picture'>
-              <BookSwiper gallery={book.images} />
-            </div>
-          </div>
-          <div className='main-right'>
-            <h3 className='book-title'>{book.title}</h3>
+        {error ? (
+          <Error />
+        ) : (
+          <>
+            <div className='main'>
+              <div className='main-left'>
+                <div className='book-picture'>
+                  <BookSwiper gallery={book.images} />
+                </div>
+              </div>
+              <div className='main-right'>
+                <h3 className='book-title'>{book.title}</h3>
 
-            <h5 className='book-author'>{book.authors}</h5>
-            <button type='submit' className='book-button available'>
-              Забронировать
-            </button>
-            <div className='book-about'>
-              <h5>О книге</h5>
-              <p className='book-description'>{book.description}</p>
+                <h5 className='book-author'>{book.authors}</h5>
+                <button type='submit' className='book-button available'>
+                  Забронировать
+                </button>
+                <div className='book-about'>
+                  <h5>О книге</h5>
+                  <p className='book-description'>{book.description}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className='book-bottom'>
-          <BookPageRating rating={book.rating} />
-          <BookPageInfoTable book={book} />
-          <BookPageReviews comments={book.comments} />
-        </div>
+            <div className='book-bottom'>
+              <BookPageRating rating={book.rating} />
+              <BookPageInfoTable book={book} />
+              <BookPageReviews comments={book.comments} />
+            </div>
+          </>
+        )}
       </main>
     </section>
   );

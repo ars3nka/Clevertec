@@ -15,35 +15,38 @@ import './header.css';
 
 export const Header = () => {
   const userName = 'Иван';
-  // const { isLoading: categoriesLoading } = useGetCategoriesQuery();
+  const { isLoading: categoriesLoading } = useGetCategoriesQuery();
   const { isMenuOpenContext, toggleMenuMode, closeMenu } = useContext(MenuContext);
 
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (e) => {
-  //     if (!ref.current.contains(e.target)) {
-  //       closeMenu();
-  //     }
-  //   };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!ref.current.contains(e.target)) {
+        closeMenu();
+      }
+      // console.log('handleClickOutside');
+    };
 
-  //   document.addEventListener('click', handleClickOutside);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [ref]);
+    document.addEventListener('click', handleClickOutside);
 
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData,
-  // };
+    // 2 раза вызывается если добавить функцию в зависимость
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref]);
 
-  // if (categoriesLoading) {
-  //   return (
-  //     <div className='loader' data-test-id='loader'>
-  //       <Lottie options={defaultOptions} width={150} height={150} />
-  //     </div>
-  //   );
-  // }
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+  };
+
+  if (categoriesLoading) {
+    return (
+      <div className='loader' data-test-id='loader'>
+        <Lottie options={defaultOptions} width={150} height={150} />
+      </div>
+    );
+  }
 
   return (
     <section className='header-section'>
@@ -92,7 +95,7 @@ export const Header = () => {
                 </svg>
               </span>
             </button>
-            {/* {window.innerWidth <= 1200 ? <Menu test='burger' /> : null} */}
+            {window.innerWidth <= 1200 ? <Menu test='burger' /> : null}
           </div>
           <h1>Библиотека</h1>
           <div className='header-user'>

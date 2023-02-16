@@ -6,8 +6,8 @@ export const NavInput = () => {
     event.target.parentElement.classList.add('search-active');
     document.getElementsByClassName('close-input').item(0).classList.remove('hide');
 
-    console.log(window.innerWidth);
-    if (window.innerWidth <= 480) {
+    // console.log('window.visualViewport.width', window.visualViewport.width);
+    if (window.visualViewport.width <= 480) {
       document.getElementsByClassName('search').item(0).style.display = 'inline-block';
       document.getElementsByClassName('sort').item(0).classList.add('hide');
       document.getElementsByClassName('navigation-list-right').item(0).classList.add('hide');
@@ -18,7 +18,7 @@ export const NavInput = () => {
   const hanldeCloseInput = (event) => {
     event.target.parentElement.classList.remove('search-active');
     document.getElementsByClassName('close-input').item(0).classList.add('hide');
-    if (window.innerWidth <= 480) {
+    if (window.visualViewport.width <= 480) {
       document.getElementsByClassName('search').item(0).style.display = 'none';
       document.getElementsByClassName('sort').item(0).classList.remove('hide');
       document.getElementsByClassName('navigation-list-right').item(0).classList.remove('hide');
