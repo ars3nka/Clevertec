@@ -1,0 +1,41 @@
+.book-rating {
+  max-width: 350px;
+  margin-bottom: 62px;
+}
+
+.book-rating {
+  max-width: 350px;
+  margin-bottom: 62px;
+}
+.star-rating {
+  display: flex;
+  height: 28px;
+  align-items: center;
+}
+
+.star {
+  background-image: url('./img/star.svg');
+  width: 20px;
+  height: 20px;
+}
+
+.star-empty {
+  background-image: url('./img/star-empty.svg');
+  width: 20px;
+  height: 20px;
+}
+
+.star-rating > div:not(:last-child) {
+  margin-right: 16px;
+}
+
+.star-rating-number {
+  margin: 0;
+  margin-left: 26px;
+}
+
+@media screen and (max-width: 420px) {
+  .star-rating > div:not(:last-child) {
+    margin-right: 12.5px;
+  }
+}

@@ -1,0 +1,112 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useContext, useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import classNames from 'classnames';
+
+import { useGetCategoriesQuery } from '../../../../redux/api';
+import { MenuContext } from '../../../layout/layout';
+
+import { MenuGenre } from './components/menu-genre/menu-genre';
+
+import './menu.css';
+
+export const Menu = ({ test }) => {
+  console.log(test);
+  const { data: booksCategories = [], error: categoriesError, isError } = useGetCategoriesQuery();
+
+  const [isBookMenuShown, setIsBookMenuShown] = useState(false);
+
+  const toggleBookMenu = () => {
+    setIsBookMenuShown(!isBookMenuShown);
+    document.getElementById('submenu').classList.toggle('hide');
+    console.log(isBookMenuShown ? 'Витрина книг открыта' : 'Витрина книг закрыта');
+  };
+
+  const { isMenuOpenContext, closeMenu } = useContext(MenuContext);
+  const menuElements = booksCategories?.map(({ name, path, id }) => <MenuGenre name={name} path={path} id={id} />);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    closeMenu();
+    // ломается если добавить функцию в зависимость
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  return (
+    <div className={classNames('menu', { menuOpen: isMenuOpenContext })} data-test-id='burger-navigation'>
+      <div className='menu-item'>
+        <NavLink
+          to='/books/all'
+          className={location.pathname.includes('books') || location.pathname === '/' ? 'menu-item-active' : null}
+          data-test-id={`${test}-showcase`}
+        >
+          <button
+            type='button'
+            className='menu-header'
+            onClick={() => {
+              toggleBookMenu();
+            }}
+            id='books'
+          >
+            Витрина книг
+          </button>
+          {categoriesError ? null : (
+            <ul className={classNames('submenu', { hide: isBookMenuShown })} id='submenu'>
+              <NavLink
+                to='/books/all'
+                className={
+                  location.pathname.includes('books/all') || location.pathname === '/' ? 'submenu-active' : null
+                }
+                data-test-id='burger-books'
+              >
+                <button type='button' className='submenu-all' data-test-id='navigation-books'>
+                  Все книги
+                </button>
+              </NavLink>
+              {menuElements}
+            </ul>
+          )}
+        </NavLink>
+      </div>
+      <div className='menu-item'>
+        <NavLink
+          to='/terms'
+          className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
+          data-test-id={`${test}-terms`}
+        >
+          <button type='button' className='menu-header' id='terms'>
+            Правила пользования
+          </button>
+        </NavLink>
+      </div>
+      <div className='menu-item'>
+        <NavLink
+          to='/contract'
+          className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
+          data-test-id={`${test}-contract`}
+        >
+          <button type='button' className='menu-header' id='contract'>
+            Договор оферты
+          </button>
+        </NavLink>
+      </div>
+      <div className='menu-burger'>
+        <div className='menu-item'>
+          <NavLink to='/profile' className={({ isActive }) => (isActive ? 'menu-item-active' : null)}>
+            <button type='button' className='menu-header' id='profile'>
+              Профиль
+            </button>
+          </NavLink>
+        </div>
+        <div className='menu-item'>
+          <NavLink to='/leave' className={({ isActive }) => (isActive ? 'menu-item-active' : null)}>
+            <button type='button' className='menu-header'>
+              Выход
+            </button>
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  );
+};
