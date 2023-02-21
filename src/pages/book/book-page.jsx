@@ -1,6 +1,8 @@
+import React from 'react';
 import Lottie from 'react-lottie';
 import { Link, useParams } from 'react-router-dom';
 
+import { BookingButton } from '../../components/button/button';
 import { Error } from '../../components/error/error';
 import * as animationData from '../../components/loader/loader.json';
 import { useGetBookByIdQuery } from '../../redux/api';
@@ -50,7 +52,7 @@ export const BookPage = () => {
         {error ? (
           <Error />
         ) : (
-          <>
+          <React.Fragment>
             <div className='main'>
               <div className='main-left'>
                 <div className='book-picture'>
@@ -61,9 +63,7 @@ export const BookPage = () => {
                 <h3 className='book-title'>{book.title}</h3>
 
                 <h5 className='book-author'>{book.authors}</h5>
-                <button type='submit' className='book-button available'>
-                  Забронировать
-                </button>
+                <BookingButton className='booking-button book-button available' text='Забронировать' />
                 <div className='book-about'>
                   <h5>О книге</h5>
                   <p className='book-description'>{book.description}</p>
@@ -75,7 +75,7 @@ export const BookPage = () => {
               <BookPageInfoTable book={book} />
               <BookPageReviews comments={book.comments} />
             </div>
-          </>
+          </React.Fragment>
         )}
       </main>
     </section>

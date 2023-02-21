@@ -7,7 +7,7 @@ export const BooksList = ({ books }) => {
       rating={book.rating}
       title={book.title}
       authors={book.authors}
-      available={book.available}
+      booking={book.booking}
       id={book.id}
       category={book.categories}
     />

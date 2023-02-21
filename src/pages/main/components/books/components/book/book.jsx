@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
+import { BookingButton } from '../../../../../../components/button/button';
 import { BASE_URL } from '../../../../../../redux/api';
 
 import { StarRating } from './components/star-rating/star-rating';
@@ -17,13 +18,9 @@ export const Book = ({ image, rating, title, authors, booking, id }) => (
       <div className='book-title'>{title}</div>
       <div className='book-author'>{authors}</div>
       {booking === null ? (
-        <button type='submit' className='book-button available'>
-          Забронировать
-        </button>
+        <BookingButton className='booking-button book-button available' text='Забронировать' />
       ) : (
-        <button type='submit' className='book-button'>
-          Забронирована
-        </button>
+        <BookingButton className='booking-button book-button' text='Забронирована' />
       )}
     </div>
   </NavLink>

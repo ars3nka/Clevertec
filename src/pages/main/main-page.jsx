@@ -37,7 +37,7 @@ export const MainPage = () => {
     <div className='main-right'>
       <NavigationList />
       <Books books={selectedCategoryName || books} />
-      <BooksList books={books} />
+      <BooksList books={selectedCategoryName || books} />
     </div>
   );
 };
