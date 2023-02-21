@@ -1,3 +1,4 @@
+import React from 'react';
 import Lottie from 'react-lottie';
 import { Outlet } from 'react-router-dom';
 
@@ -28,12 +29,15 @@ export const LayoutMainPage = () => {
     <section className='main-wrapper'>
       <main>
         <div className='main'>
-          <div className='main-left'>{window.innerWidth >= 1200 ? <Menu test='navigation' /> : null}</div>
+          <div className='main-left'>
+            <Menu test='navigation' />
+          </div>
+          {/* {window.innerWidth >= 1200 ? <Menu test='navigation' /> : null} */}
           {booksError || categoriesError ? (
-            <>
+            <React.Fragment>
               <Error />
               <Outlet />
-            </>
+            </React.Fragment>
           ) : (
             <Outlet />
           )}

@@ -23,7 +23,9 @@ export const Menu = ({ test }) => {
   };
 
   const { isMenuOpenContext, closeMenu } = useContext(MenuContext);
-  const menuElements = booksCategories?.map(({ name, path, id }) => <MenuGenre name={name} path={path} id={id} />);
+  const menuElements = booksCategories?.map(({ name, path, id }) => (
+    <MenuGenre name={name} path={path} id={id} test={test} />
+  ));
 
   const location = useLocation();
 
@@ -58,9 +60,9 @@ export const Menu = ({ test }) => {
                 className={
                   location.pathname.includes('books/all') || location.pathname === '/' ? 'submenu-active' : null
                 }
-                data-test-id='burger-books'
+                data-test-id={`${test}-books`}
               >
-                <button type='button' className='submenu-all' data-test-id='navigation-books'>
+                <button type='button' className='submenu-all'>
                   Все книги
                 </button>
               </NavLink>

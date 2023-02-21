@@ -46,7 +46,8 @@ export const BookPage = () => {
       <main>
         <div className='book-route'>
           <Link to={`/books/${params.category}`}>
-            {book?.categories || params.category} / {book?.title}
+            <span data-test-id='breadcrumbs-link'>{book?.categories || params.category}</span>/
+            <span data-test-id='book-name'>{book?.title}</span>
           </Link>
         </div>
         {error ? (
@@ -60,8 +61,9 @@ export const BookPage = () => {
                 </div>
               </div>
               <div className='main-right'>
-                <h3 className='book-title'>{book.title}</h3>
-
+                <h3 className='book-title' data-test-id='book-title'>
+                  {book.title}
+                </h3>
                 <h5 className='book-author'>{book.authors}</h5>
                 <BookingButton className='booking-button book-button available' text='Забронировать' />
                 <div className='book-about'>
