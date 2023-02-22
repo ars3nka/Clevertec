@@ -57,11 +57,16 @@ export const MainPage = () => {
   return (
     <div className='main-right'>
       <NavigationList changeInputText={changeInputText} inputText={inputText} />
+
       {booksSorted?.length ? (
         <Books books={booksSorted} inputText={inputText} />
       ) : (
-        <div>
-          <p data-test-id='search-result-not-found'>По запросу ничего не найдено</p>
+        <div className='empty-data-text'>
+          {inputText ? (
+            <p data-test-id='search-result-not-found'>По запросу ничего не найдено</p>
+          ) : (
+            <p data-test-id='empty-category'>В этой категории книг ещё нет</p>
+          )}
         </div>
       )}
 
