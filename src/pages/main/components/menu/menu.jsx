@@ -24,7 +24,7 @@ export const Menu = ({ test }) => {
 
   const { isMenuOpenContext, closeMenu } = useContext(MenuContext);
   const menuElements = booksCategories?.map(({ name, path, id }) => (
-    <MenuGenre name={name} path={path} id={id} test={test} />
+    <MenuGenre name={name} path={path} id={id} test={test} onClick={() => closeMenu()} />
   ));
 
   const location = useLocation();
@@ -62,7 +62,7 @@ export const Menu = ({ test }) => {
                 }
                 data-test-id={`${test}-books`}
               >
-                <button type='button' className='submenu-all'>
+                <button type='button' className='submenu-all' onClick={() => closeMenu()}>
                   Все книги
                 </button>
               </NavLink>
@@ -77,7 +77,7 @@ export const Menu = ({ test }) => {
           className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
           data-test-id={`${test}-terms`}
         >
-          <button type='button' className='menu-header' id='terms'>
+          <button type='button' className='menu-header' id='terms' onClick={() => closeMenu()}>
             Правила пользования
           </button>
         </NavLink>
@@ -88,7 +88,7 @@ export const Menu = ({ test }) => {
           className={({ isActive }) => (isActive ? 'menu-item-active' : null)}
           data-test-id={`${test}-contract`}
         >
-          <button type='button' className='menu-header' id='contract'>
+          <button type='button' className='menu-header' id='contract' onClick={() => closeMenu()}>
             Договор оферты
           </button>
         </NavLink>
@@ -96,14 +96,14 @@ export const Menu = ({ test }) => {
       <div className='menu-burger'>
         <div className='menu-item'>
           <NavLink to='/profile' className={({ isActive }) => (isActive ? 'menu-item-active' : null)}>
-            <button type='button' className='menu-header' id='profile'>
+            <button type='button' className='menu-header' id='profile' onClick={() => closeMenu()}>
               Профиль
             </button>
           </NavLink>
         </div>
         <div className='menu-item'>
           <NavLink to='/leave' className={({ isActive }) => (isActive ? 'menu-item-active' : null)}>
-            <button type='button' className='menu-header'>
+            <button type='button' className='menu-header' onClick={() => closeMenu()}>
               Выход
             </button>
           </NavLink>

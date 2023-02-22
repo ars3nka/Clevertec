@@ -3,10 +3,10 @@ import { NavInput } from './nav-input/nav-input';
 
 import './navigation-list.css';
 
-export const NavigationList = () => (
+export const NavigationList = ({ changeInputText, inputText }) => (
   <div className='navigation-list'>
     <div className='navigation-list-left'>
-      <NavInput />
+      <NavInput changeInputText={changeInputText} inputText={inputText} />
       <button type='button' className='button-style sort'>
         <img src={sortImg} alt='' />
         <p>По рейтингу</p>

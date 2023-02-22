@@ -19,7 +19,12 @@ export const MainPage = () => {
   }
 
   const [booksSorted, setBooksSorted] = useState([]);
+  const [inputText, setInputText] = useState('');
   const params = useParams();
+
+  const changeInputText = (value) => {
+    setInputText(value);
+  };
 
   useEffect(() => {
     let selectedCategoryName = [];
@@ -38,14 +43,29 @@ export const MainPage = () => {
       setBooksSorted(selectedCategoryName);
     }
 
-    console.log('USEEFFECT');
-  }, [books, booksCategories, booksError, booksLoading, categoriesLoading, params.category]);
+    if (inputText) {
+      const filtredBooks = selectedCategoryName.filter((el) =>
+        el.title.toLowerCase().includes(inputText.toLowerCase())
+      );
+
+      setBooksSorted(filtredBooks);
+    }
+
+    console.log('USE EFFECT');
+  }, [books, booksCategories, booksError, booksLoading, categoriesLoading, inputText, params.category]);
 
   return (
     <div className='main-right'>
-      <NavigationList />
-      <Books books={booksSorted} />
-      <BooksList books={booksSorted} />
+      <NavigationList changeInputText={changeInputText} inputText={inputText} />
+      {booksSorted?.length ? (
+        <Books books={booksSorted} inputText={inputText} />
+      ) : (
+        <div>
+          <p data-test-id='search-result-not-found'>По запросу ничего не найдено</p>
+        </div>
+      )}
+
+      {/* <BooksList books={booksSorted} /> */}
     </div>
   );
 };
