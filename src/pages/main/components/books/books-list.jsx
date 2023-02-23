@@ -13,5 +13,5 @@ export const BooksList = ({ books }) => {
     />
   ));
 
-  return <div className='books-list hide'>{booksElements}</div>;
+  return <div className='books-list'>{booksElements}</div>;
 };
