@@ -18,7 +18,12 @@ export const NavigationList = ({
   <div className='navigation-list'>
     <div className='navigation-list-left'>
       <NavInput changeInputText={changeInputText} inputText={inputText} />
-      <button type='button' className='button-style sort' onClick={toggleSortBooksByRating}>
+      <button
+        type='button'
+        className='button-style sort'
+        onClick={toggleSortBooksByRating}
+        data-test-id='sort-rating-button'
+      >
         <img src={isSortBooksDescendingOrder ? sortAscending : sortDescending} alt='' />
         <p>По рейтингу</p>
       </button>

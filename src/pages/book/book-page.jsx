@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { BookingButton } from '../../components/button/button';
 import { Error } from '../../components/error/error';
@@ -11,6 +11,7 @@ import { BookPageInfoTable } from './components/book-info-table/book-info-table'
 import { BookPageRating } from './components/book-rating/book-rating';
 import { BookPageReviews } from './components/book-reviews/book-reviews';
 import { BookSwiper } from './components/book-swiper/book-swiper';
+import { Breadcrumbs } from './components/breadcrumbs/breadcrumbs';
 
 import './book-page.css';
 
@@ -31,7 +32,7 @@ export const BookPage = () => {
 
   const { data: book, isLoading, error } = useGetBookByIdQuery(id);
 
-  console.log('Книга:', book);
+  // console.log('Книга:', book);
 
   if (isLoading && !error) {
     return (
@@ -44,12 +45,7 @@ export const BookPage = () => {
   return (
     <section className='main-wrapper book-page'>
       <main>
-        <div className='book-route'>
-          <Link to={`/books/${params.category}`}>
-            <span data-test-id='breadcrumbs-link'>{book?.categories || params.category}</span>/
-            <span data-test-id='book-name'>{book?.title}</span>
-          </Link>
-        </div>
+        <Breadcrumbs params={params} book={book} />
         {error ? (
           <Error />
         ) : (

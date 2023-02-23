@@ -8,7 +8,8 @@ import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux/api';
 import { Menu } from '../main/components/menu/menu';
 
 export const LayoutMainPage = () => {
-  const { isLoading: booksLoading, error: booksError } = useGetBooksQuery();
+  const { isLoading: booksLoading, error: booksError, isFetching: bookFetching } = useGetBooksQuery();
+
   const { isLoading: categoriesLoading, error: categoriesError } = useGetCategoriesQuery();
 
   const defaultOptions = {
@@ -17,7 +18,7 @@ export const LayoutMainPage = () => {
     animationData,
   };
 
-  if ((booksLoading || categoriesLoading) && (!booksError || !categoriesError)) {
+  if ((bookFetching || booksLoading || categoriesLoading) && (!booksError || !categoriesError)) {
     return (
       <div className='loader' data-test-id='loader'>
         <Lottie options={defaultOptions} width={150} height={150} />

@@ -60,9 +60,13 @@ export const Menu = ({ test }) => {
                 className={
                   location.pathname.includes('books/all') || location.pathname === '/' ? 'submenu-active' : null
                 }
-                data-test-id={`${test}-books`}
               >
-                <button type='button' className='submenu-all' onClick={() => closeMenu()}>
+                <button
+                  type='button'
+                  className='submenu-all'
+                  onClick={() => closeMenu()}
+                  data-test-id={`${test}-books`}
+                >
                   Все книги
                 </button>
               </NavLink>
