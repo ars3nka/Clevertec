@@ -27,22 +27,15 @@ export const MainPage = () => {
 
   const setBookViewList = () => {
     setBookList(true);
-    console.log('setBookViewList');
   };
 
   const setBookViewWindow = () => {
     setBookList(false);
-    console.log('setBookViewWindow');
   };
 
   const toggleSortBooksByRating = () => {
     setIsSortBooksDescendingOrder(!isSortBooksDescendingOrder);
   };
-
-  const sortedBooksByRating = useMemo(
-    () => books && sortBooksByRating(books, isSortBooksDescendingOrder),
-    [books, isSortBooksDescendingOrder]
-  );
 
   const changeInputText = (value) => {
     setInputText(value);
@@ -52,16 +45,14 @@ export const MainPage = () => {
     let selectedCategoryName = [];
 
     if (!booksLoading && !categoriesLoading && !booksError && !categoriesLoading) {
-      selectedCategoryName = Object.assign([], books);
-      selectedCategoryName.sort((a, b) => b.rating - a.rating);
+      selectedCategoryName = sortBooksByRating(books, isSortBooksDescendingOrder);
       setBooksSorted(selectedCategoryName);
     }
 
     if (books && booksCategories && !categoriesLoading && params.category !== 'all') {
       const categoryName = booksCategories.find((el) => el.path === params.category);
-      console.log(categoryName.name);
+
       selectedCategoryName = books.filter((el) => el.categories.includes(categoryName.name));
-      console.log(selectedCategoryName);
       setBooksSorted(selectedCategoryName);
     }
 
@@ -73,8 +64,17 @@ export const MainPage = () => {
       setBooksSorted(filtredBooks);
     }
 
-    console.log('USE EFFECT');
-  }, [books, booksCategories, booksError, booksLoading, categoriesLoading, inputText, params.category]);
+    console.log('USE EFFECT: FILTER BOOKS');
+  }, [
+    books,
+    booksCategories,
+    booksError,
+    booksLoading,
+    categoriesLoading,
+    inputText,
+    isSortBooksDescendingOrder,
+    params.category,
+  ]);
 
   return (
     <div className='main-right'>
@@ -89,6 +89,7 @@ export const MainPage = () => {
       />
 
       {booksSorted?.length ? (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         <React.Fragment>
           {isBookList ? <BooksList books={booksSorted} /> : <Books books={booksSorted} inputText={inputText} />}
         </React.Fragment>

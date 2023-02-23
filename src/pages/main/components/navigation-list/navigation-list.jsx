@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
-import sortImg from './img/sort.svg';
+import sortAscending from './img/icon-sort-ascending.svg';
+import sortDescending from './img/icon-sort-descending.svg';
 import { NavInput } from './nav-input/nav-input';
 
 import './navigation-list.css';
@@ -18,7 +19,7 @@ export const NavigationList = ({
     <div className='navigation-list-left'>
       <NavInput changeInputText={changeInputText} inputText={inputText} />
       <button type='button' className='button-style sort' onClick={toggleSortBooksByRating}>
-        <img src={sortImg} alt='' />
+        <img src={isSortBooksDescendingOrder ? sortAscending : sortDescending} alt='' />
         <p>По рейтингу</p>
       </button>
     </div>
